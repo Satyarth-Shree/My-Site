@@ -2,10 +2,18 @@
 
 // put your custom CSS here!
 
-/* Fix mobile sidebar overlap */
+/* Fix mobile sidebar overlap with hamburger icon */
 @media (max-width: 768px) {
-  .mobile-header {
-    padding-left: 3rem;
+
+  /* Add top spacing inside sidebar */
+  .sidebar {
+    padding-top: 60px !important;
+  }
+
+  /* Ensure sidebar sits below header */
+  .sidebar-header {
+    margin-top: 10px;
   }
 }
+
 
