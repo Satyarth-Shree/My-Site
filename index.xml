@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Satyarth&#039;s Engineering Garden</title>
+      <link>https://quartz.jzhao.xyz</link>
+      <description>Last 10 notes on Satyarth&#039;s Engineering Garden</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Engineering Journey</title>
+    <link>https://quartz.jzhao.xyz/Engineering-Journey/</link>
+    <guid>https://quartz.jzhao.xyz/Engineering-Journey/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 14 Feb 2026 16:28:04 GMT</pubDate>
+  </item><item>
+    <title>Engineering Lab</title>
+    <link>https://quartz.jzhao.xyz/Engineering-Lab/</link>
+    <guid>https://quartz.jzhao.xyz/Engineering-Lab/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 14 Feb 2026 16:28:04 GMT</pubDate>
+  </item><item>
+    <title>Mathematical Insights</title>
+    <link>https://quartz.jzhao.xyz/Mathematical-Insights/</link>
+    <guid>https://quartz.jzhao.xyz/Mathematical-Insights/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 14 Feb 2026 16:28:04 GMT</pubDate>
+  </item><item>
+    <title>Welcome</title>
+    <link>https://quartz.jzhao.xyz/</link>
+    <guid>https://quartz.jzhao.xyz/</guid>
+    <description><![CDATA[ Hi — I’m Satyarth Shree I’m a BTech student in Robotics and Automation at Lovely Professional University (LPU), India. ]]></description>
+    <pubDate>Sat, 14 Feb 2026 16:28:04 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
