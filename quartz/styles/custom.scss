@@ -1,3 +1,11 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* Fix mobile sidebar overlap */
+@media (max-width: 768px) {
+  .mobile-header {
+    padding-left: 3rem;
+  }
+}
+
