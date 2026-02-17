@@ -1,5 +1,0 @@
----
-
-title: Mathematical Insights
-
----
