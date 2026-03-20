@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satyarth Shree — Personal Brand Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f5f0e8;
+  --bg2: #ede8df;
+  --ink: #1a1510;
+  --ink2: #3d3528;
+  --muted: #9a9080;
+  --accent: #c84b2f;
+  --accent2: #2d6a4f;
+  --accent3: #1d4e89;
+  --gold: #b8860b;
+  --paper: #faf7f2;
+  --border: rgba(26,21,16,0.1);
+  --border-strong: rgba(26,21,16,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+}
+
+
+
+/* ─── TOP NAVBAR ─── */
+.top-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  height: 48px;
+  background: rgba(245,240,232,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.top-nav-brand {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  text-decoration: none;
+}
+
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.top-nav-item {
+  position: relative;
+}
+
+.top-nav-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.top-nav-btn:hover { color: var(--ink); }
+.top-nav-btn.active { color: var(--accent); }
+
+.top-nav-btn .nav-arrow {
+  font-size: 8px;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.top-nav-item:hover .nav-arrow,
+.top-nav-item.open .nav-arrow { transform: rotate(180deg); }
+
+.top-nav-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.top-nav-link:hover { color: var(--accent); }
+
+/* Dropdown */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 1px);
+  right: 0;
+  min-width: 280px;
+  background: var(--paper);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 12px 40px rgba(26,21,16,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.top-nav-item.open .nav-dropdown,
+.top-nav-item:focus-within .nav-dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.dropdown-header {
+  padding: 12px 18px 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.dropdown-item:last-child { border-bottom: none; }
+.dropdown-item:hover { background: white; }
+
+.di-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+}
+
+.di-text {}
+.di-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.di-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.di-badge {
+  margin-left: auto;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(200,75,47,0.08);
+  border: 1px solid rgba(200,75,47,0.2);
+  padding: 2px 7px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* push page content below navbar */
+.page { padding-top: 48px; }
+.hero { padding-top: 52px; }
+
+/* GRAIN OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 1000;
+  animation: grainMove 0.5s steps(1) infinite;
+}
+
+@keyframes grainMove {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -3%); }
+  20% { transform: translate(3%, 1%); }
+  30% { transform: translate(-1%, 4%); }
+  40% { transform: translate(4%, -2%); }
+  50% { transform: translate(-3%, 2%); }
+  60% { transform: translate(2%, -4%); }
+  70% { transform: translate(-4%, 1%); }
+  80% { transform: translate(1%, 3%); }
+  90% { transform: translate(3%, -1%); }
+  100% { transform: translate(-2%, 4%); }
+}
+
+/* LAYOUT */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  padding: 72px 0 56px;
+  border-bottom: 1px solid var(--border-strong);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  animation: fadeIn 1s ease both;
+}
+
+.hero-left {}
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.hero-name .italic {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-role {
+  margin-top: 22px;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.hero-role strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.hero-right {
+  text-align: right;
+  padding-bottom: 8px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 8px 14px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.hero-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-link:hover { color: var(--accent); }
+
+.hero-link::after {
+  content: '↗';
+  font-size: 9px;
+}
+
+/* ─── SECTION HEADER ─── */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 52px 0 24px;
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── IDENTITY GRID ─── */
+.identity-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2px;
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+
+.id-card {
+  background: var(--paper);
+  padding: 28px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.id-card:hover { background: white; }
+
+.id-card.accent-red { border-top: 3px solid var(--accent); }
+.id-card.accent-green { border-top: 3px solid var(--accent2); }
+.id-card.accent-blue { border-top: 3px solid var(--accent3); }
+.id-card.accent-gold { border-top: 3px solid var(--gold); }
+.id-card.span2 { grid-column: span 2; }
+
+.id-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.id-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.id-value.mono {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+.id-sub {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.id-corner {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-size: 32px;
+  opacity: 0.06;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ─── STATS BAND ─── */
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  overflow: hidden;
+  animation: fadeUp 0.8s 0.25s ease both;
+}
+
+.stat-cell {
+  padding: 28px 24px;
+  background: var(--paper);
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: background 0.2s;
+}
+
+.stat-cell:last-child { border-right: none; }
+.stat-cell:hover { background: white; }
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.stat-num .unit {
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.stat-desc {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.stat-desc strong {
+  color: var(--ink2);
+  font-weight: 500;
+}
+
+/* ─── CHART ─── */
+.chart-wrap {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 32px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.chart-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.chart-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.chart-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.chart-legend {
+  display: flex;
+  gap: 20px;
+}
+
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.leg-swatch {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 160px;
+}
+
+.c-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  gap: 4px;
+  cursor: default;
+}
+
+.c-bars {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.c-bar {
+  flex: 1;
+  border-radius: 1px 1px 0 0;
+  transition: opacity 0.2s, transform 0.2s;
+  min-height: 2px;
+}
+
+.c-bar:hover { opacity: 0.75; transform: scaleY(1.03); transform-origin: bottom; }
+
+.c-bar-v { background: var(--ink); opacity: 0.15; }
+.c-bar-r { background: var(--accent); }
+
+.c-bar-group.current .c-bar-v { opacity: 0.25; }
+.c-bar-group.current .c-bar-r { background: var(--gold); }
+
+.c-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.c-label.current-label {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ─── PLATFORMS ─── */
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  animation: fadeUp 0.8s 0.35s ease both;
+}
+
+.platform-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 24px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s, transform 0.25s;
+  cursor: default;
+}
+
+.platform-card:hover {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(26,21,16,0.08);
+}
+
+.platform-icon {
+  font-size: 22px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.platform-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.platform-handle {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.platform-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.platform-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 1px;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.platform-badge.live { background: var(--accent2); }
+.platform-badge.growing { background: var(--accent3); }
+.platform-badge.active { background: var(--gold); color: var(--ink); }
+
+/* ─── TIMELINE ─── */
+.timeline {
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 100px 1px 1fr;
+  gap: 0 24px;
+  min-height: 64px;
+}
+
+.tl-date {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: right;
+  padding-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+.tl-line-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tl-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--bg);
+  outline: 1px solid var(--ink);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.tl-dot.red { background: var(--accent); outline-color: var(--accent); }
+.tl-dot.green { background: var(--accent2); outline-color: var(--accent2); }
+.tl-dot.blue { background: var(--accent3); outline-color: var(--accent3); }
+.tl-dot.gold { background: var(--gold); outline-color: var(--gold); }
+
+.tl-connector {
+  flex: 1;
+  width: 1px;
+  background: var(--border);
+}
+
+.tl-content {
+  padding: 0 0 28px;
+}
+
+.tl-event {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.tl-detail {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─── GROWTH TABLE ─── */
+.growth-table-wrap {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  animation: fadeUp 0.8s 0.45s ease both;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+thead tr {
+  background: var(--ink);
+}
+
+thead th {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bg);
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 400;
+}
+
+thead th:not(:first-child) { text-align: right; }
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+tbody tr:hover { background: rgba(26,21,16,0.03); }
+tbody tr.highlight { background: rgba(200,75,47,0.04); }
+tbody tr.highlight td { }
+
+td {
+  padding: 12px 20px;
+  font-size: 13px;
+  font-family: 'Space Mono', monospace;
+}
+
+td:not(:first-child) { text-align: right; }
+
+.month-cell {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.month-cell.partial { color: var(--gold); }
+
+.pill {
+  display: inline-block;
+  font-size: 9px;
+  font-family: 'Space Mono', monospace;
+  padding: 2px 7px;
+  border-radius: 1px;
+  letter-spacing: 0.05em;
+}
+
+.pill.up { background: rgba(45,106,79,0.12); color: var(--accent2); }
+.pill.down { background: rgba(200,75,47,0.1); color: var(--accent); }
+.pill.partial { background: rgba(184,134,11,0.12); color: var(--gold); }
+
+.inline-bar {
+  display: inline-block;
+  height: 3px;
+  border-radius: 1px;
+  vertical-align: middle;
+  margin-left: 8px;
+  opacity: 0.5;
+}
+
+/* ─── QUOTE BAND ─── */
+.quote-band {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 48px 40px;
+  margin: 52px 0 0;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+
+.quote-band::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(245,240,232,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3vw, 30px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-text em {
+  color: #f5c77e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.quote-attr {
+  margin-top: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.4);
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  margin-top: 52px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeUp 0.8s 0.55s ease both;
+}
+
+.footer-left {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.footer-right {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { text-align: left; }
+  .hero-links { align-items: flex-start; }
+  .identity-grid { grid-template-columns: 1fr 1fr; }
+  .id-card.span2 { grid-column: span 2; }
+  .stats-band { grid-template-columns: 1fr 1fr; }
+  .platforms-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAVBAR -->
+<nav class="top-nav">
+  <a class="top-nav-brand" href="index.html">Satyarth Shree</a>
+  <div class="top-nav-links">
+    <a class="top-nav-link" href="index.html">Dashboard</a>
+
+    <!-- Tutorials dropdown -->
+    <div class="top-nav-item" id="tutorialsMenu">
+      <button class="top-nav-btn" onclick="toggleMenu()" aria-haspopup="true">
+        Tutorials <span class="nav-arrow">▾</span>
+      </button>
+      <div class="nav-dropdown">
+        <div class="dropdown-header">ROS 2 Tutorial Series</div>
+        <a class="dropdown-item" href="ros2-part1.html">
+          <span class="di-icon">📦</span>
+          <div class="di-text">
+            <div class="di-title">Part 1 — Workspace &amp; Package</div>
+            <div class="di-sub">Install ROS 2 · Create your first workspace</div>
+          </div>
+        </a>
+        <a class="dropdown-item" href="https://medium.com/@satyarthshree45/ros-2-tutorial-for-beginners-part-2-creating-your-first-node-c33e92d54b5c" target="_blank">
+          <span class="di-icon">🔧</span>
+          <div class="di-text">
+            <div class="di-title">Part 2 — Creating Your First Node</div>
+            <div class="di-sub">Write &amp; run your first ROS 2 node</div>
+          </div>
+          <span class="di-badge">Medium ↗</span>
+        </a>
+        <a class="dropdown-item" href="https://medium.com/@satyarthshree45/ros-2-tutorial-for-beginners-part-3-understanding-ros-2-nodes-sub-part-1-20d47f6793ef" target="_blank">
+          <span class="di-icon">🤖</span>
+          <div class="di-text">
+            <div class="di-title">Part 3 Sub Part 1 — Understanding Nodes</div>
+            <div class="di-sub">Run, inspect &amp; experiment with nodes</div>
+          </div>
+          <span class="di-badge">Medium ↗</span>
+        </a>
+        <a class="dropdown-item" href="https://rossimplified.substack.com/p/ros-2-tutorial-for-beginners-part?r=61m4w1" target="_blank">
+          <span class="di-icon">🔬</span>
+          <div class="di-text">
+            <div class="di-title">Part 3 Sub Part 2 — Nodes Deep Dive</div>
+            <div class="di-sub">Custom nodes &amp; deeper node insights</div>
+          </div>
+          <span class="di-badge">Substack ↗</span>
+        </a>
+        <a class="dropdown-item" href="https://medium.com/@satyarthshree45/ros2-tutorial-for-beginners-part-4-understanding-rclpy-spin-and-creating-a-class-based-node-511c124f55c0" target="_blank">
+          <span class="di-icon">⚙️</span>
+          <div class="di-text">
+            <div class="di-title">Part 4 — rclpy.spin() &amp; Class-Based Nodes</div>
+            <div class="di-sub">Understanding spin &amp; OOP node structure</div>
+          </div>
+          <span class="di-badge">Medium ↗</span>
+        </a>
+        <a class="dropdown-item" href="https://rossimplified.substack.com" target="_blank">
+          <span class="di-icon">📬</span>
+          <div class="di-text">
+            <div class="di-title">View All on ROS Simplified</div>
+            <div class="di-sub">rossimplified.substack.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <a class="top-nav-link" href="https://github.com/Satyarth-Shree/ros2-guides" target="_blank">GitHub ↗</a>
+  </div>
+</nav>
+
+
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Personal Brand Dashboard · 2025–2026</div>
+      <div class="hero-name">
+        Satyarth<br>
+        <span class="italic">Shree.</span>
+      </div>
+      <div class="hero-role">
+        BTech Robotics & Automation · <strong>Lovely Professional University</strong><br>
+        Founder of <strong>ROS Simplified</strong> — the internet's most beginner-friendly ROS 2 publication.<br>
+        Writer · Builder · Technical Educator.
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        Active · Building
+      </div>
+      <div class="hero-links">
+        <a class="hero-link" href="https://rossimplified.substack.com" target="_blank" rel="noopener">rossimplified.substack.com</a>
+        <a class="hero-link" href="https://medium.com/@satyarthshree45" target="_blank" rel="noopener">medium.com/@satyarthshree45</a>
+        <a class="hero-link" href="https://github.com/Satyarth-Shree" target="_blank" rel="noopener">github.com/Satyarth-Shree</a>
+        <a class="hero-link" href="https://www.linkedin.com/in/satyarth-shree-761357374/" target="_blank" rel="noopener">linkedin.com/in/satyarth-shree</a>
+        <a class="hero-link" href="https://docs.satyarthshree.com" target="_blank" rel="noopener">docs.satyarthshree.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: IDENTITY -->
+  <div class="section-head">
+    <span class="section-num">i.</span>
+    <span class="section-title">Identity & Infrastructure</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="identity-grid">
+    <div class="id-card accent-red span2">
+      <div class="id-label">Publication</div>
+      <div class="id-value">ROS Simplified</div>
+      <div class="id-sub">The go-to beginner resource for ROS 2 — an uncontested niche in a growing robotics ecosystem. Live on Substack with a dedicated domain and growing cross-platform presence.</div>
+      <div class="id-corner">∑</div>
+    </div>
+    <div class="id-card accent-green">
+      <div class="id-label">Institution</div>
+      <div class="id-value">LPU</div>
+      <div class="id-sub">B.Tech Robotics & Automation, 2nd semester</div>
+      <div class="id-corner">⚙</div>
+    </div>
+    <div class="id-card accent-blue">
+      <div class="id-label">Custom Domain</div>
+      <div class="id-value mono">satyarthshree.com</div>
+      <div class="id-sub">With working subdomains: LinkedIn, GitHub, docs, blog + custom Zoho email</div>
+    </div>
+    <div class="id-card accent-gold">
+      <div class="id-label">Custom Email</div>
+      <div class="id-value mono" id="emailCell"></div>
+      <div class="id-sub">Professional identity from day one of engineering school</div>
+    </div>
+    <div class="id-card">
+      <div class="id-label">Niche Positioning</div>
+      <div class="id-value" style="font-size:18px">Largely Uncontested</div>
+      <div class="id-sub">Beginner-focused ROS 2 content. Very few competitors at this depth and accessibility level.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: BLOG STATS -->
+  <div class="section-head">
+    <span class="section-num">ii.</span>
+    <span class="section-title">Blog Growth · May 2025 – Mar 2026</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="stats-band">
+    <div class="stat-cell">
+      <div class="stat-num">2,189<span class="unit"> views</span></div>
+      <div class="stat-desc">Total views across <strong>10 months</strong> of publishing</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">1,055<span class="unit"> reads</span></div>
+      <div class="stat-desc">People who actually <strong>read through</strong> the content</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">48<span class="unit">%</span></div>
+      <div class="stat-desc">Average <strong>read ratio</strong> — exceptionally high for technical content</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">119<span class="unit">×</span></div>
+      <div class="stat-desc">Growth from <strong>May → Mar</strong> — 4 views to 476 (partial)</div>
+    </div>
+  </div>
+
+  <!-- CHART -->
+  <div class="chart-wrap" style="margin-top:2px">
+    <div class="chart-meta">
+      <div>
+        <div class="chart-title">Monthly Views & <em>Reads</em></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;font-family:'Space Mono',monospace">10 months · started 28 May 2025</div>
+      </div>
+      <div class="chart-legend">
+        <div class="leg-item"><div class="leg-swatch" style="background:var(--ink);opacity:0.3"></div>Views</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:var(--accent)"></div>Reads</div>
+      </div>
+    </div>
+    <div class="chart-bars" id="chart"></div>
+  </div>
+
+  <!-- SECTION 3: PLATFORMS -->
+  <div class="section-head">
+    <span class="section-num">iii.</span>
+    <span class="section-title">Platform Presence</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="platforms-grid">
+    <a class="platform-card" href="https://rossimplified.substack.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
+      <div class="platform-badge live">Primary</div>
+      <div class="platform-icon">📬</div>
+      <div class="platform-name">Substack</div>
+      <div class="platform-handle">rossimplified.substack.com</div>
+      <div class="platform-desc">ROS Simplified — the flagship publication. Home base for long-form tutorials targeting ROS 2 beginners and hobbyists.</div>
+    </a>
+    <a class="platform-card" href="https://medium.com/@satyarthshree45" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
+      <div class="platform-badge growing">Growing</div>
+      <div class="platform-icon">✍️</div>
+      <div class="platform-name">Medium</div>
+      <div class="platform-handle">@satyarthshree45</div>
+      <div class="platform-desc">Cross-posting hub with broader reach. Significant impressions generated from targeted Reddit distribution of Medium posts.</div>
+    </a>
+    <a class="platform-card" href="https://docs.satyarthshree.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
+      <div class="platform-badge active">Docs</div>
+      <div class="platform-icon">📖</div>
+      <div class="platform-name">GitHub Pages</div>
+      <div class="platform-handle">docs.satyarthshree.com</div>
+      <div class="platform-desc">Dedicated ROS 2 documentation site. Rated 70–75% of professional technical writer standards — exceptional for a first-year student.</div>
+    </a>
+    <a class="platform-card" href="https://www.linkedin.com/in/satyarth-shree-761357374/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
+      <div class="platform-icon">💼</div>
+      <div class="platform-name">LinkedIn</div>
+      <div class="platform-handle">linkedin.com/in/satyarth-shree</div>
+      <div class="platform-desc">Professional profile with custom subdomain redirect. Part of the broader personal brand infrastructure.</div>
+    </a>
+    <a class="platform-card" href="https://github.com/Satyarth-Shree" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
+      <div class="platform-icon">🐙</div>
+      <div class="platform-name">GitHub</div>
+      <div class="platform-handle">github.com/Satyarth-Shree</div>
+      <div class="platform-desc">Code repository with custom subdomain. Portfolio of technical work including robotics projects and documentation source.</div>
+    </a>
+    <div class="platform-card">
+      <div class="platform-icon">🤖</div>
+      <div class="platform-name">Reddit</div>
+      <div class="platform-handle">r/ROS · r/robotics</div>
+      <div class="platform-desc">Key distribution channel. A single post generated significant impressions — validating community-led growth as a core strategy.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: TIMELINE -->
+  <div class="section-head">
+    <span class="section-num">iv.</span>
+    <span class="section-title">Building in Public · Timeline</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">May 2025</div>
+      <div class="tl-line-wrap"><div class="tl-dot red"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">Day Zero — First Post Published</div>
+        <div class="tl-detail">4 views, 2 reads. Every great publication starts somewhere. The seed is planted.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Jun–Sep 2025</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">Early Stage — Finding the Voice</div>
+        <div class="tl-detail">Volatile numbers, dip in Aug–Sep. Most blogs die here. Not this one. Writing quality and format experimented upon — analogies, "Common Mistakes", experiment-based structure introduced.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Oct 2025</div>
+      <div class="tl-line-wrap"><div class="tl-dot gold"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">The Inflection Point</div>
+        <div class="tl-detail">114 views — the turning point. Something clicked. Community distribution, Reddit presence, or content quality crossing a threshold. No month has dropped below this since.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Nov–Dec 2025</div>
+      <div class="tl-line-wrap"><div class="tl-dot green"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">Sustained Growth — Breaking 200 Reads</div>
+        <div class="tl-detail">Nov: 232 views / 115 reads. Dec: 275 views / 140 reads. First time consistently clearing 100+ reads per month. The audience is real and growing.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Jan–Mar 2026</div>
+      <div class="tl-line-wrap"><div class="tl-dot red"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">Q1 2026 — Acceleration Phase</div>
+        <div class="tl-detail">Three consecutive best months. 410 → 394 → 476+ views. March still has 11 days left and is already the best month on record. Q1 delivering nearly 2× the traffic of Q4 2025.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Ongoing</div>
+      <div class="tl-line-wrap"><div class="tl-dot blue"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">The Trajectory Is Clear</div>
+        <div class="tl-detail">A second-semester engineering student running a professional publication with custom infrastructure, community presence, and a growing readership. This is rare. This is intentional.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: MONTHLY TABLE -->
+  <div class="section-head">
+    <span class="section-num">v.</span>
+    <span class="section-title">Monthly Data Table</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="growth-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Views</th>
+          <th>Reads</th>
+          <th>Ratio</th>
+          <th>MoM</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- QUOTE BAND -->
+  <div class="quote-band">
+    <div class="quote-text">
+      The trajectory isn't just good for a student blog.
+      It's <em>good, period.</em>
+    </div>
+    <div class="quote-attr">— Growth Analysis · ROS Simplified · March 2026</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Satyarth Shree · Personal Brand Dashboard</div>
+    <div class="footer-right">Data through 20 March 2026 · 11 days remaining in March</div>
+  </div>
+
+</div>
+
+<script>
+// Email written via JS to prevent Cloudflare obfuscation
+(function() {
+  const u = 'contact', d = 'satyarthshree.com';
+  const el = document.getElementById('emailCell');
+  if (el) el.innerHTML = '<a href="mailto:' + u + '@' + d + '">' + u + '@' + d + '</a>';
+})();
+
+function toggleMenu() {
+  const menu = document.getElementById('tutorialsMenu');
+  menu.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('tutorialsMenu');
+  if (!menu.contains(e.target)) menu.classList.remove('open');
+});
+
+
+
+// DATA
+const data = [
+  { month: 'May 2025',  views: 4,   reads: 2,   partial: false },
+  { month: 'Jun 2025',  views: 49,  reads: 22,  partial: false },
+  { month: 'Jul 2025',  views: 128, reads: 47,  partial: false },
+  { month: 'Aug 2025',  views: 61,  reads: 18,  partial: false },
+  { month: 'Sep 2025',  views: 46,  reads: 23,  partial: false },
+  { month: 'Oct 2025',  views: 114, reads: 62,  partial: false },
+  { month: 'Nov 2025',  views: 232, reads: 115, partial: false },
+  { month: 'Dec 2025',  views: 275, reads: 140, partial: false },
+  { month: 'Jan 2026',  views: 410, reads: 181, partial: false },
+  { month: 'Feb 2026',  views: 394, reads: 200, partial: false },
+  { month: 'Mar 2026',  views: 476, reads: 245, partial: true  },
+];
+
+const maxV = Math.max(...data.map(d => d.views));
+
+// CHART
+const chartEl = document.getElementById('chart');
+data.forEach(d => {
+  const g = document.createElement('div');
+  g.className = 'c-bar-group' + (d.partial ? ' current' : '');
+
+  const bs = document.createElement('div');
+  bs.className = 'c-bars';
+
+  const bv = document.createElement('div');
+  bv.className = 'c-bar c-bar-v';
+  bv.style.height = Math.max(2, d.views / maxV * 148) + 'px';
+  bv.title = d.month + ': ' + d.views + ' views';
+
+  const br = document.createElement('div');
+  br.className = 'c-bar c-bar-r';
+  br.style.height = Math.max(2, d.reads / maxV * 148) + 'px';
+  br.title = d.month + ': ' + d.reads + ' reads';
+
+  bs.appendChild(bv);
+  bs.appendChild(br);
+
+  const short = d.month.replace(' 2025','').replace(' 2026','');
+  const lbl = document.createElement('div');
+  lbl.className = 'c-label' + (d.partial ? ' current-label' : '');
+  lbl.textContent = short;
+
+  g.appendChild(bs);
+  g.appendChild(lbl);
+  chartEl.appendChild(g);
+});
+
+// TABLE
+const tbody = document.getElementById('tbody');
+data.forEach((d, i) => {
+  const prev = i > 0 ? data[i-1] : null;
+  const ratio = (d.reads / d.views * 100).toFixed(1);
+  let momHtml = '<span style="color:var(--muted)">—</span>';
+
+  if (prev) {
+    const pct = Math.round((d.views - prev.views) / prev.views * 100);
+    const cls = d.partial ? 'partial' : pct >= 0 ? 'up' : 'down';
+    const sign = pct >= 0 ? '+' : '';
+    momHtml = `<span class="pill ${cls}">${sign}${pct}%</span>`;
+  }
+
+  const bw = Math.round(d.views / maxV * 56);
+  const brw = Math.round(d.reads / maxV * 56);
+
+  const tr = document.createElement('tr');
+  if (d.partial) tr.className = 'highlight';
+  tr.innerHTML = `
+    <td><span class="month-cell ${d.partial ? 'partial' : ''}">${d.month}${d.partial ? ' ✦' : ''}</span></td>
+    <td>${d.views.toLocaleString()}<span class="inline-bar" style="width:${bw}px;background:var(--ink)"></span></td>
+    <td>${d.reads.toLocaleString()}<span class="inline-bar" style="width:${brw}px;background:var(--accent)"></span></td>
+    <td>${ratio}%</td>
+    <td>${momHtml}</td>
+  `;
+  tbody.appendChild(tr);
+});
+</script>
+</body>
+</html>
