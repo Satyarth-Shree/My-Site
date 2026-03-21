@@ -31,10 +31,7 @@ body {
   font-family: 'Outfit', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
-
 }
-
-
 
 /* ─── TOP NAVBAR ─── */
 .top-nav {
@@ -780,7 +777,6 @@ tbody tr {
 
 tbody tr:hover { background: rgba(26,21,16,0.03); }
 tbody tr.highlight { background: rgba(200,75,47,0.04); }
-tbody tr.highlight td { }
 
 td {
   padding: 12px 20px;
@@ -819,6 +815,244 @@ td:not(:first-child) { text-align: right; }
   vertical-align: middle;
   margin-left: 8px;
   opacity: 0.5;
+}
+
+/* ─── WHAT I CAN DO FOR YOU ─── */
+.work-section {
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+
+.work-intro {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  padding: 36px 40px;
+  margin-bottom: 2px;
+}
+
+.work-intro-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink2);
+  line-height: 1.6;
+  max-width: 680px;
+}
+
+.work-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.work-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+}
+
+.work-card:hover { background: white; }
+
+.work-card-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.work-card-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.specialism-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.specialism-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink2);
+  line-height: 1.5;
+}
+
+.specialism-item::before {
+  content: '→';
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.outcome-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.outcome-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(45,106,79,0.05);
+  border: 1px solid rgba(45,106,79,0.12);
+  border-radius: 1px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.outcome-item:hover {
+  background: rgba(45,106,79,0.09);
+  border-color: rgba(45,106,79,0.22);
+}
+
+.outcome-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.outcome-check svg {
+  width: 9px;
+  height: 9px;
+  stroke: white;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+.outcome-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* CTA band */
+.work-cta {
+  background: var(--ink);
+  padding: 44px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-cta::before {
+  content: '✦';
+  position: absolute;
+  right: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 120px;
+  color: rgba(245,240,232,0.03);
+  pointer-events: none;
+  font-family: 'Playfair Display', serif;
+}
+
+.cta-text {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bg);
+  line-height: 1.45;
+  max-width: 580px;
+  margin-bottom: 6px;
+}
+
+.cta-headline em {
+  font-style: normal;
+  font-weight: 700;
+  color: #f5c77e;
+}
+
+.cta-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.35);
+  margin-top: 4px;
+}
+
+.cta-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.cta-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 11px 18px;
+  border: 1px solid rgba(245,240,232,0.12);
+  background: rgba(245,240,232,0.04);
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.cta-contact-item:hover {
+  background: rgba(245,240,232,0.09);
+  border-color: rgba(245,240,232,0.25);
+}
+
+.cta-contact-icon {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.cta-contact-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.4);
+  margin-bottom: 2px;
+}
+
+.cta-contact-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(245,240,232,0.85);
 }
 
 /* ─── QUOTE BAND ─── */
@@ -917,6 +1151,9 @@ td:not(:first-child) { text-align: right; }
   .id-card.span2 { grid-column: span 2; }
   .stats-band { grid-template-columns: 1fr 1fr; }
   .platforms-grid { grid-template-columns: 1fr 1fr; }
+  .work-body { grid-template-columns: 1fr; }
+  .work-cta { grid-template-columns: 1fr; }
+  .work-intro { padding: 28px 24px; }
 }
 </style>
 </head>
@@ -1228,6 +1465,92 @@ td:not(:first-child) { text-align: right; }
     </table>
   </div>
 
+  <!-- SECTION 6: WHAT I CAN DO FOR YOU -->
+  <div class="section-head">
+    <span class="section-num">vi.</span>
+    <span class="section-title">What I Can Do For You</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="work-section">
+
+    <!-- Intro statement -->
+    <div class="work-intro">
+      <div class="work-intro-text">
+        I help robotics and developer-focused products become <em style="font-style:italic;color:var(--accent)">easier to understand, adopt, and use.</em>
+      </div>
+    </div>
+
+    <!-- Specialisms + Outcomes -->
+    <div class="work-body">
+      <div class="work-card">
+        <div class="work-card-label">I Specialize In</div>
+        <ul class="specialism-list">
+          <li class="specialism-item">Beginner-friendly ROS 2 tutorials and documentation</li>
+          <li class="specialism-item">Step-by-step developer onboarding guides</li>
+          <li class="specialism-item">Breaking down complex systems into clear, structured learning paths</li>
+        </ul>
+      </div>
+      <div class="work-card">
+        <div class="work-card-label">Outcomes</div>
+        <ul class="outcome-list">
+          <li class="outcome-item">
+            <div class="outcome-check">
+              <svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg>
+            </div>
+            <span class="outcome-text">Faster user onboarding</span>
+          </li>
+          <li class="outcome-item">
+            <div class="outcome-check">
+              <svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg>
+            </div>
+            <span class="outcome-text">Reduced confusion</span>
+          </li>
+          <li class="outcome-item">
+            <div class="outcome-check">
+              <svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg>
+            </div>
+            <span class="outcome-text">Better developer experience</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="work-cta">
+      <div class="cta-text">
+        <div class="cta-headline">
+          If you're building a robotics product, developer tool, or technical platform and want to improve how users <em>understand and adopt it</em> — I can help.
+        </div>
+        <div class="cta-sub">Let's collaborate</div>
+      </div>
+      <div class="cta-contacts">
+        <a class="cta-contact-item" href="mailto:contact@satyarthshree.com">
+          <span class="cta-contact-icon">📧</span>
+          <div>
+            <div class="cta-contact-label">Email</div>
+            <div class="cta-contact-value">contact@satyarthshree.com</div>
+          </div>
+        </a>
+        <a class="cta-contact-item" href="https://www.linkedin.com/in/satyarth-shree-761357374/" target="_blank" rel="noopener">
+          <span class="cta-contact-icon">💼</span>
+          <div>
+            <div class="cta-contact-label">LinkedIn</div>
+            <div class="cta-contact-value">linkedin.com/in/satyarth-shree</div>
+          </div>
+        </a>
+        <a class="cta-contact-item" href="https://github.com/Satyarth-Shree" target="_blank" rel="noopener">
+          <span class="cta-contact-icon">💻</span>
+          <div>
+            <div class="cta-contact-label">GitHub</div>
+            <div class="cta-contact-value">github.com/Satyarth-Shree</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
   <!-- QUOTE BAND -->
   <div class="quote-band">
     <div class="quote-text">
@@ -1261,8 +1584,6 @@ document.addEventListener('click', e => {
   const menu = document.getElementById('tutorialsMenu');
   if (!menu.contains(e.target)) menu.classList.remove('open');
 });
-
-
 
 // DATA
 const data = [
