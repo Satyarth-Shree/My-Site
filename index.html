@@ -40,7 +40,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── TOP NAVBAR ─── */
+/* TOP NAVBAR */
 .top-nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -239,7 +239,7 @@ body::before {
   padding: 0 32px 80px;
 }
 
-/* ─── HERO ─── */
+/* HERO */
 .hero {
   padding: 72px 0 56px;
   border-bottom: 1px solid var(--border-strong);
@@ -249,8 +249,6 @@ body::before {
   gap: 32px;
   animation: fadeIn 1s ease both;
 }
-
-.hero-left {}
 
 .hero-tag {
   font-family: 'Space Mono', monospace;
@@ -352,13 +350,9 @@ body::before {
 }
 
 .hero-link:hover { color: var(--accent); }
+.hero-link::after { content: '↗'; font-size: 9px; }
 
-.hero-link::after {
-  content: '↗';
-  font-size: 9px;
-}
-
-/* ─── SECTION HEADER ─── */
+/* SECTION HEADER */
 .section-head {
   display: flex;
   align-items: baseline;
@@ -387,7 +381,7 @@ body::before {
   background: var(--border);
 }
 
-/* ─── IDENTITY GRID ─── */
+/* IDENTITY GRID */
 .identity-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -405,7 +399,6 @@ body::before {
 }
 
 .id-card:hover { background: white; }
-
 .id-card.accent-red { border-top: 3px solid var(--accent); }
 .id-card.accent-green { border-top: 3px solid var(--accent2); }
 .id-card.accent-blue { border-top: 3px solid var(--accent3); }
@@ -458,7 +451,7 @@ body::before {
   pointer-events: none;
 }
 
-/* ─── STATS BAND ─── */
+/* STATS BAND */
 .stats-band {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -503,12 +496,9 @@ body::before {
   line-height: 1.5;
 }
 
-.stat-desc strong {
-  color: var(--ink2);
-  font-weight: 500;
-}
+.stat-desc strong { color: var(--ink2); font-weight: 500; }
 
-/* ─── CHART ─── */
+/* CHART */
 .chart-wrap {
   background: var(--paper);
   border: 1px solid var(--border);
@@ -531,10 +521,7 @@ body::before {
   letter-spacing: -0.02em;
 }
 
-.chart-title em {
-  font-style: italic;
-  color: var(--accent);
-}
+.chart-title em { font-style: italic; color: var(--accent); }
 
 .chart-legend {
   display: flex;
@@ -552,11 +539,7 @@ body::before {
   text-transform: uppercase;
 }
 
-.leg-swatch {
-  width: 24px;
-  height: 3px;
-  border-radius: 2px;
-}
+.leg-swatch { width: 24px; height: 3px; border-radius: 2px; }
 
 .chart-bars {
   display: flex;
@@ -591,10 +574,8 @@ body::before {
 }
 
 .c-bar:hover { opacity: 0.75; transform: scaleY(1.03); transform-origin: bottom; }
-
 .c-bar-v { background: var(--ink); opacity: 0.15; }
 .c-bar-r { background: var(--accent); }
-
 .c-bar-group.current .c-bar-v { opacity: 0.25; }
 .c-bar-group.current .c-bar-r { background: var(--gold); }
 
@@ -605,12 +586,9 @@ body::before {
   letter-spacing: 0.05em;
 }
 
-.c-label.current-label {
-  color: var(--gold);
-  font-weight: 700;
-}
+.c-label.current-label { color: var(--gold); font-weight: 700; }
 
-/* ─── PLATFORMS ─── */
+/* PLATFORMS */
 .platforms-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -634,11 +612,7 @@ body::before {
   box-shadow: 0 8px 32px rgba(26,21,16,0.08);
 }
 
-.platform-icon {
-  font-size: 22px;
-  margin-bottom: 12px;
-  line-height: 1;
-}
+.platform-icon { font-size: 22px; margin-bottom: 12px; line-height: 1; }
 
 .platform-name {
   font-family: 'Playfair Display', serif;
@@ -681,10 +655,8 @@ body::before {
 .platform-badge.growing { background: var(--accent3); }
 .platform-badge.active { background: var(--gold); color: var(--ink); }
 
-/* ─── TIMELINE ─── */
-.timeline {
-  animation: fadeUp 0.8s 0.4s ease both;
-}
+/* TIMELINE */
+.timeline { animation: fadeUp 0.8s 0.4s ease both; }
 
 .tl-item {
   display: grid;
@@ -724,15 +696,9 @@ body::before {
 .tl-dot.blue { background: var(--accent3); outline-color: var(--accent3); }
 .tl-dot.gold { background: var(--gold); outline-color: var(--gold); }
 
-.tl-connector {
-  flex: 1;
-  width: 1px;
-  background: var(--border);
-}
+.tl-connector { flex: 1; width: 1px; background: var(--border); }
 
-.tl-content {
-  padding: 0 0 28px;
-}
+.tl-content { padding: 0 0 28px; }
 
 .tl-event {
   font-family: 'Playfair Display', serif;
@@ -750,7 +716,7 @@ body::before {
   line-height: 1.6;
 }
 
-/* ─── GROWTH TABLE ─── */
+/* GROWTH TABLE */
 .growth-table-wrap {
   background: var(--paper);
   border: 1px solid var(--border);
@@ -760,9 +726,7 @@ body::before {
 
 table { width: 100%; border-collapse: collapse; }
 
-thead tr {
-  background: var(--ink);
-}
+thead tr { background: var(--ink); }
 
 thead th {
   font-family: 'Space Mono', monospace;
@@ -824,10 +788,8 @@ td:not(:first-child) { text-align: right; }
   opacity: 0.5;
 }
 
-/* ─── WHAT I CAN DO FOR YOU ─── */
-.work-section {
-  animation: fadeUp 0.8s 0.5s ease both;
-}
+/* WHAT I CAN DO */
+.work-section { animation: fadeUp 0.8s 0.5s ease both; }
 
 .work-intro {
   background: var(--paper);
@@ -982,10 +944,7 @@ td:not(:first-child) { text-align: right; }
   font-family: 'Playfair Display', serif;
 }
 
-.cta-text {
-  position: relative;
-  z-index: 1;
-}
+.cta-text { position: relative; z-index: 1; }
 
 .cta-headline {
   font-family: 'Playfair Display', serif;
@@ -1062,57 +1021,7 @@ td:not(:first-child) { text-align: right; }
   color: rgba(245,240,232,0.85);
 }
 
-/* ─── QUOTE BAND ─── */
-.quote-band {
-  background: var(--ink);
-  color: var(--bg);
-  padding: 48px 40px;
-  margin: 52px 0 0;
-  position: relative;
-  overflow: hidden;
-  animation: fadeUp 0.8s 0.5s ease both;
-}
-
-.quote-band::before {
-  content: '"';
-  position: absolute;
-  top: -20px;
-  left: 24px;
-  font-family: 'Playfair Display', serif;
-  font-size: 180px;
-  font-weight: 900;
-  color: rgba(245,240,232,0.04);
-  line-height: 1;
-  pointer-events: none;
-}
-
-.quote-text {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(20px, 3vw, 30px);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.4;
-  max-width: 700px;
-  position: relative;
-  z-index: 1;
-}
-
-.quote-text em {
-  color: #f5c77e;
-  font-style: normal;
-  font-weight: 700;
-}
-
-.quote-attr {
-  margin-top: 20px;
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(245,240,232,0.4);
-}
-
-/* ─── FOOTER ─── */
+/* FOOTER */
 .footer {
   margin-top: 52px;
   padding-top: 24px;
@@ -1139,10 +1048,7 @@ td:not(:first-child) { text-align: right; }
 }
 
 /* ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -1172,7 +1078,6 @@ td:not(:first-child) { text-align: right; }
   <div class="top-nav-links">
     <a class="top-nav-link" href="index.html">Dashboard</a>
 
-    <!-- Tutorials dropdown -->
     <div class="top-nav-item" id="tutorialsMenu">
       <button class="top-nav-btn" onclick="toggleMenu()" aria-haspopup="true">
         Tutorials <span class="nav-arrow">▾</span>
@@ -1218,6 +1123,14 @@ td:not(:first-child) { text-align: right; }
           </div>
           <span class="di-badge">Medium ↗</span>
         </a>
+        <a class="dropdown-item" href="https://medium.com/@satyarthshree45/ros2-tutorial-for-beginners-part-5-managing-ros2-workspace-storage-using-linux-commands-f0c0b76c9559" target="_blank">
+          <span class="di-icon">🗂️</span>
+          <div class="di-text">
+            <div class="di-title">Part 5 — Managing Workspace Storage</div>
+            <div class="di-sub">Linux commands for ROS 2 storage management</div>
+          </div>
+          <span class="di-badge">Medium ↗</span>
+        </a>
         <a class="dropdown-item" href="https://rossimplified.substack.com" target="_blank">
           <span class="di-icon">📬</span>
           <div class="di-text">
@@ -1232,8 +1145,6 @@ td:not(:first-child) { text-align: right; }
   </div>
 </nav>
 
-
-
 <div class="page">
 
   <!-- HERO -->
@@ -1246,7 +1157,7 @@ td:not(:first-child) { text-align: right; }
       </div>
       <div class="hero-role">
         BTech Robotics & Automation · <strong>Lovely Professional University</strong><br>
-        Founder of <strong>ROS Simplified</strong> — the internet's most beginner-friendly ROS 2 publication.<br>
+        Founder of <strong>ROS Simplified</strong> — a beginner-focused ROS 2 tutorial series.<br>
         Writer · Builder · Technical Educator.
       </div>
     </div>
@@ -1276,7 +1187,7 @@ td:not(:first-child) { text-align: right; }
     <div class="id-card accent-red span2">
       <div class="id-label">Publication</div>
       <div class="id-value">ROS Simplified</div>
-      <div class="id-sub">The go-to beginner resource for ROS 2 — an uncontested niche in a growing robotics ecosystem. Live on Substack with a dedicated domain and growing cross-platform presence.</div>
+      <div class="id-sub">A beginner-focused ROS 2 tutorial series targeting a niche with limited structured learning resources. Live on Substack with cross-platform distribution across Medium, Reddit, and a custom domain.</div>
       <div class="id-corner">∑</div>
     </div>
     <div class="id-card accent-green">
@@ -1297,8 +1208,8 @@ td:not(:first-child) { text-align: right; }
     </div>
     <div class="id-card">
       <div class="id-label">Niche Positioning</div>
-      <div class="id-value" style="font-size:18px">Largely Uncontested</div>
-      <div class="id-sub">Beginner-focused ROS 2 content. Very few competitors at this depth and accessibility level.</div>
+      <div class="id-value" style="font-size:18px">Low Competition</div>
+      <div class="id-sub">Beginner-focused ROS 2 tutorials. Few existing resources cover this depth and accessibility level for newcomers.</div>
     </div>
   </div>
 
@@ -1320,11 +1231,11 @@ td:not(:first-child) { text-align: right; }
     </div>
     <div class="stat-cell">
       <div class="stat-num">49<span class="unit">%</span></div>
-      <div class="stat-desc">Average <strong>read ratio</strong> — exceptionally high for technical content</div>
+      <div class="stat-desc">Average <strong>read ratio</strong> — above the Medium average for technical content</div>
     </div>
     <div class="stat-cell">
       <div class="stat-num">190<span class="unit">×</span></div>
-      <div class="stat-desc">Growth from <strong>May → Mar</strong> — 4 views to 760 — best month on record</div>
+      <div class="stat-desc">Views growth from <strong>May → Mar</strong> — 4 views to 760 — best month on record</div>
     </div>
   </div>
 
@@ -1356,7 +1267,7 @@ td:not(:first-child) { text-align: right; }
       <div class="platform-icon">📬</div>
       <div class="platform-name">Substack</div>
       <div class="platform-handle">rossimplified.substack.com</div>
-      <div class="platform-desc">ROS Simplified — the flagship publication. Home base for long-form tutorials targeting ROS 2 beginners and hobbyists.</div>
+      <div class="platform-desc">ROS Simplified — the flagship publication. Home base for long-form tutorials targeting ROS 2 beginners and hobbyists. 110 subscribers.</div>
     </a>
     <a class="platform-card" href="https://medium.com/@satyarthshree45" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
       <div class="platform-badge growing">Growing</div>
@@ -1370,7 +1281,7 @@ td:not(:first-child) { text-align: right; }
       <div class="platform-icon">📖</div>
       <div class="platform-name">GitHub Pages</div>
       <div class="platform-handle">docs.satyarthshree.com</div>
-      <div class="platform-desc">Dedicated ROS 2 documentation site. Rated 70–75% of professional technical writer standards — exceptional for a first-year student.</div>
+      <div class="platform-desc">Dedicated ROS 2 documentation site hosted on a custom subdomain, covering installation through hands-on node experimentation.</div>
     </a>
     <a class="platform-card" href="https://www.linkedin.com/in/satyarth-shree-761357374/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
       <div class="platform-icon">💼</div>
@@ -1405,47 +1316,47 @@ td:not(:first-child) { text-align: right; }
       <div class="tl-line-wrap"><div class="tl-dot red"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
         <div class="tl-event">Day Zero — First Post Published</div>
-        <div class="tl-detail">4 views, 2 reads. Every great publication starts somewhere. The seed is planted.</div>
+        <div class="tl-detail">4 views, 2 reads in the first month — the starting point for the publication.</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">Jun–Sep 2025</div>
       <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
-        <div class="tl-event">Early Stage — Finding the Voice</div>
-        <div class="tl-detail">Volatile numbers, dip in Aug–Sep. Most blogs die here. Not this one. Writing quality and format experimented upon — analogies, "Common Mistakes", experiment-based structure introduced.</div>
+        <div class="tl-event">Early Stage — Format Experimentation</div>
+        <div class="tl-detail">Volatile numbers, with a dip in Aug–Sep. Format experiments during this period — analogies, "Common Mistakes" sections, and hands-on experiment-based structure were introduced and iterated on.</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">Oct 2025</div>
       <div class="tl-line-wrap"><div class="tl-dot gold"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
-        <div class="tl-event">The Inflection Point</div>
-        <div class="tl-detail">114 views — the turning point. Something clicked. Community distribution, Reddit presence, or content quality crossing a threshold. No month has dropped below this since.</div>
+        <div class="tl-event">October — First 100+ View Month</div>
+        <div class="tl-detail">114 views in October — the first time the publication cleared that threshold. No subsequent month has dropped below it.</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">Nov–Dec 2025</div>
       <div class="tl-line-wrap"><div class="tl-dot green"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
-        <div class="tl-event">Sustained Growth — Breaking 200 Reads</div>
-        <div class="tl-detail">Nov: 232 views / 115 reads. Dec: 275 views / 140 reads. First time consistently clearing 100+ reads per month. The audience is real and growing.</div>
+        <div class="tl-event">Q4 2025 — First Back-to-Back 100+ Read Months</div>
+        <div class="tl-detail">Nov: 232 views / 115 reads. Dec: 275 views / 140 reads. First consecutive months exceeding 100 reads, indicating a returning readership rather than one-off traffic.</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">Jan–Mar 2026</div>
       <div class="tl-line-wrap"><div class="tl-dot red"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
-        <div class="tl-event">Q1 2026 — The Breakout Quarter</div>
-        <div class="tl-detail">Three consecutive best months, each breaking the record. 410 → 394 → 760 views. March closed at 760 views and 388 reads — the best month in the publication's history, nearly double February. Q1 alone delivered more than 2× the traffic of all of Q4 2025.</div>
+        <div class="tl-event">Q1 2026 — Three Consecutive Record Months</div>
+        <div class="tl-detail">410 → 394 → 760 views across January, February, and March. March closed at 760 views and 388 reads — the highest single-month figures since launch. Q1 2026 alone accounted for more traffic than all of Q4 2025 combined.</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">Ongoing</div>
       <div class="tl-line-wrap"><div class="tl-dot blue"></div></div>
       <div class="tl-content">
-        <div class="tl-event">The Trajectory Is Clear</div>
-        <div class="tl-detail">A second-semester engineering student running a professional publication with custom infrastructure, community presence, and a growing readership. This is rare. This is intentional.</div>
+        <div class="tl-event">110 Substack Subscribers · 5 Parts Published</div>
+        <div class="tl-detail">A second-semester engineering student maintaining an active publication with a custom domain, multi-platform distribution, and a measurably growing subscriber base across 11 months.</div>
       </div>
     </div>
   </div>
@@ -1472,15 +1383,6 @@ td:not(:first-child) { text-align: right; }
     </table>
   </div>
 
-  <!-- QUOTE BAND -->
-  <div class="quote-band">
-    <div class="quote-text">
-      The trajectory isn't just good for a student blog.
-      It's <em>good, period.</em>
-    </div>
-    <div class="quote-attr">— Growth Analysis · ROS Simplified · March 2026</div>
-  </div>
-
   <!-- SECTION 6: WHAT I CAN DO FOR YOU -->
   <div class="section-head">
     <span class="section-num">vi.</span>
@@ -1490,14 +1392,12 @@ td:not(:first-child) { text-align: right; }
 
   <div class="work-section">
 
-    <!-- Intro statement -->
     <div class="work-intro">
       <div class="work-intro-text">
         I help robotics and developer-focused products become <em style="font-style:italic;color:var(--accent)">easier to understand, adopt, and use.</em>
       </div>
     </div>
 
-    <!-- Specialisms + Outcomes -->
     <div class="work-body">
       <div class="work-card">
         <div class="work-card-label">I Specialize In</div>
@@ -1532,7 +1432,6 @@ td:not(:first-child) { text-align: right; }
       </div>
     </div>
 
-    <!-- CTA -->
     <div class="work-cta">
       <div class="cta-text">
         <div class="cta-headline">
@@ -1576,7 +1475,6 @@ td:not(:first-child) { text-align: right; }
 </div>
 
 <script>
-// Email written via JS to prevent Cloudflare obfuscation
 (function() {
   const u = 'contact', d = 'satyarthshree.com';
   const el = document.getElementById('emailCell');
@@ -1592,7 +1490,6 @@ document.addEventListener('click', e => {
   if (!menu.contains(e.target)) menu.classList.remove('open');
 });
 
-// DATA
 const data = [
   { month: 'May 2025',  views: 4,   reads: 2,   partial: false },
   { month: 'Jun 2025',  views: 49,  reads: 22,  partial: false },
@@ -1609,7 +1506,6 @@ const data = [
 
 const maxV = Math.max(...data.map(d => d.views));
 
-// CHART
 const chartEl = document.getElementById('chart');
 data.forEach(d => {
   const g = document.createElement('div');
@@ -1641,7 +1537,6 @@ data.forEach(d => {
   chartEl.appendChild(g);
 });
 
-// TABLE
 const tbody = document.getElementById('tbody');
 data.forEach((d, i) => {
   const prev = i > 0 ? data[i-1] : null;
