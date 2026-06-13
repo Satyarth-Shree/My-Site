@@ -131,6 +131,9 @@ body {
   pointer-events: none;
   transform: translateY(-6px);
   transition: opacity 0.2s, transform 0.2s;
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .top-nav-item.open .nav-dropdown,
@@ -1131,6 +1134,30 @@ td:not(:first-child) { text-align: right; }
           </div>
           <span class="di-badge">Medium ↗</span>
         </a>
+        <a class="dropdown-item" href="https://medium.com/@satyarthshree45/ros-2-tutorial-for-beginners-part-6-topics-and-publisher-foundations-09b493c64bce" target="_blank">
+          <span class="di-icon">📡</span>
+          <div class="di-text">
+            <div class="di-title">Part 6 — Topics &amp; Publisher Foundations</div>
+            <div class="di-sub">How ROS 2 topics enable node communication</div>
+          </div>
+          <span class="di-badge">Medium ↗</span>
+        </a>
+        <a class="dropdown-item" href="https://medium.com/@satyarthshree45/ros-2-tutorial-for-beginners-part-7-creating-a-publisher-and-exploring-it-with-ros-2-cli-d98ac9cb4dd0" target="_blank">
+          <span class="di-icon">📤</span>
+          <div class="di-text">
+            <div class="di-title">Part 7 — Creating a Publisher &amp; ROS 2 CLI</div>
+            <div class="di-sub">Send messages &amp; inspect topics via CLI tools</div>
+          </div>
+          <span class="di-badge">Medium ↗</span>
+        </a>
+        <a class="dropdown-item" href="https://medium.com/@satyarthshree45/ros-2-tutorial-for-beginners-part-8-create-your-first-subscriber-node-in-python-57a4b2f978f2" target="_blank">
+          <span class="di-icon">📥</span>
+          <div class="di-text">
+            <div class="di-title">Part 8 — Create Your First Subscriber Node</div>
+            <div class="di-sub">Receive topic data using Python callback functions</div>
+          </div>
+          <span class="di-badge">Medium ↗</span>
+        </a>
         <a class="dropdown-item" href="https://rossimplified.substack.com" target="_blank">
           <span class="di-icon">📬</span>
           <div class="di-text">
@@ -1216,26 +1243,26 @@ td:not(:first-child) { text-align: right; }
   <!-- SECTION 2: BLOG STATS -->
   <div class="section-head">
     <span class="section-num">ii.</span>
-    <span class="section-title">Blog Growth · May 2025 – Mar 2026</span>
+    <span class="section-title">Blog Growth · May 2025 – May 2026</span>
     <div class="section-line"></div>
   </div>
 
   <div class="stats-band">
     <div class="stat-cell">
-      <div class="stat-num">2,949<span class="unit"> views</span></div>
-      <div class="stat-desc">Total views across <strong>11 months</strong> of publishing</div>
+      <div class="stat-num">4,764<span class="unit"> views</span></div>
+      <div class="stat-desc">Total views across <strong>13 months</strong> of publishing</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num">1,443<span class="unit"> reads</span></div>
+      <div class="stat-num">2,173<span class="unit"> reads</span></div>
       <div class="stat-desc">People who actually <strong>read through</strong> the content</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num">49<span class="unit">%</span></div>
+      <div class="stat-num">46<span class="unit">%</span></div>
       <div class="stat-desc">Average <strong>read ratio</strong> — above the Medium average for technical content</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num">190<span class="unit">×</span></div>
-      <div class="stat-desc">Views growth from <strong>May → Mar</strong> — 4 views to 760 — best month on record</div>
+      <div class="stat-num">248<span class="unit">×</span></div>
+      <div class="stat-desc">Views growth from <strong>May '25 → May '26</strong> — 4 views to 991 — best month on record</div>
     </div>
   </div>
 
@@ -1244,7 +1271,7 @@ td:not(:first-child) { text-align: right; }
     <div class="chart-meta">
       <div>
         <div class="chart-title">Monthly Views & <em>Reads</em></div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;font-family:'Space Mono',monospace">11 months · started 28 May 2025</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;font-family:'Space Mono',monospace">13 months · started 28 May 2025</div>
       </div>
       <div class="chart-legend">
         <div class="leg-item"><div class="leg-swatch" style="background:var(--ink);opacity:0.3"></div>Views</div>
@@ -1267,7 +1294,7 @@ td:not(:first-child) { text-align: right; }
       <div class="platform-icon">📬</div>
       <div class="platform-name">Substack</div>
       <div class="platform-handle">rossimplified.substack.com</div>
-      <div class="platform-desc">ROS Simplified — the flagship publication. Home base for long-form tutorials targeting ROS 2 beginners and hobbyists. 110 subscribers.</div>
+      <div class="platform-desc">ROS Simplified — the flagship publication. Home base for long-form tutorials targeting ROS 2 beginners and hobbyists. 247 subscribers.</div>
     </a>
     <a class="platform-card" href="https://medium.com/@satyarthshree45" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
       <div class="platform-badge growing">Growing</div>
@@ -1352,11 +1379,19 @@ td:not(:first-child) { text-align: right; }
       </div>
     </div>
     <div class="tl-item">
+      <div class="tl-date">Apr–May 2026</div>
+      <div class="tl-line-wrap"><div class="tl-dot gold"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">Q2 2026 — New All-Time High & 247 Subscribers</div>
+        <div class="tl-detail">Apr: 824 views / 356 reads. May: 991 views / 374 reads — the highest single-month view count since launch, surpassing March's previous record. Substack subscriber count grew from 110 to 247, a 125% increase, reflecting sustained audience compounding alongside Parts 6, 7 &amp; 8 of the tutorial series.</div>
+      </div>
+    </div>
+    <div class="tl-item">
       <div class="tl-date">Ongoing</div>
       <div class="tl-line-wrap"><div class="tl-dot blue"></div></div>
       <div class="tl-content">
-        <div class="tl-event">110 Substack Subscribers · 5 Parts Published</div>
-        <div class="tl-detail">A second-semester engineering student maintaining an active publication with a custom domain, multi-platform distribution, and a measurably growing subscriber base across 11 months.</div>
+        <div class="tl-event">247 Substack Subscribers · 8 Parts Published</div>
+        <div class="tl-detail">An engineering student maintaining an active publication with a custom domain, multi-platform distribution, and a measurably growing subscriber base across 13 months — now covering the full publisher–subscriber communication cycle in ROS 2.</div>
       </div>
     </div>
   </div>
@@ -1469,7 +1504,7 @@ td:not(:first-child) { text-align: right; }
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-left">Satyarth Shree · Personal Brand Dashboard</div>
-    <div class="footer-right">Data through 31 March 2026 · Complete</div>
+    <div class="footer-right">Data through 31 May 2026 · Complete</div>
   </div>
 
 </div>
@@ -1502,6 +1537,8 @@ const data = [
   { month: 'Jan 2026',  views: 410, reads: 181, partial: false },
   { month: 'Feb 2026',  views: 394, reads: 200, partial: false },
   { month: 'Mar 2026',  views: 760, reads: 388, partial: false },
+  { month: 'Apr 2026',  views: 824, reads: 356, partial: false },
+  { month: 'May 2026',  views: 991, reads: 374, partial: false },
 ];
 
 const maxV = Math.max(...data.map(d => d.views));
