@@ -399,6 +399,8 @@ body::before {
   position: relative;
   overflow: hidden;
   transition: background 0.3s;
+  /* FIX: prevent card from overflowing its grid cell */
+  min-width: 0;
 }
 
 .id-card:hover { background: white; }
@@ -432,7 +434,20 @@ body::before {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.6;
+  /* FIX: allow long monospace strings to wrap */
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
+
+/* FIX: email link inside mono value */
+.id-value.mono a {
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.id-value.mono a:hover { text-decoration: underline; }
 
 .id-sub {
   margin-top: 6px;
@@ -507,7 +522,10 @@ body::before {
   border: 1px solid var(--border);
   padding: 32px;
   animation: fadeUp 0.8s 0.3s ease both;
+  overflow-x: auto;
 }
+
+
 
 .chart-meta {
   display: flex;
@@ -549,6 +567,7 @@ body::before {
   align-items: flex-end;
   gap: 8px;
   height: 160px;
+  min-width: 480px;
 }
 
 .c-bar-group {
@@ -1070,6 +1089,16 @@ td:not(:first-child) { text-align: right; }
   .work-body { grid-template-columns: 1fr; }
   .work-cta { grid-template-columns: 1fr; }
   .work-intro { padding: 28px 24px; }
+
+  /* FIX: reduce font size of mono values on small screens so they wrap gracefully */
+  .id-value.mono {
+    font-size: 12px;
+  }
+
+  /* FIX: tighten card padding on mobile so text has more room */
+  .id-card {
+    padding: 20px 16px;
+  }
 }
 </style>
 </head>
