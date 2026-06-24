@@ -10,7 +10,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satyarth Shree — Personal Brand Dashboard</title>
+<title>Satyarth Shree — Robotics Engineer & Builder</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -513,6 +513,63 @@ body::before {
 
 .stat-desc strong { color: var(--ink2); font-weight: 500; }
 
+/* ENGINEERING HIGHLIGHTS — builder-metric counterpart to stats-band */
+.eng-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  overflow: hidden;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.eng-cell {
+  padding: 28px 24px;
+  background: var(--paper);
+  border-right: 1px solid var(--border);
+  border-top: 3px solid var(--accent3);
+  position: relative;
+  transition: background 0.2s;
+}
+
+.eng-cell:last-child { border-right: none; }
+.eng-cell:hover { background: white; }
+
+.eng-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.eng-num .unit {
+  font-size: 17px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.eng-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent3);
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.eng-desc {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.eng-desc strong { color: var(--ink2); font-weight: 500; }
+
 /* CHART */
 .chart-wrap {
   background: var(--paper);
@@ -739,6 +796,53 @@ body::before {
   border: 1px solid var(--border);
   overflow: hidden;
   animation: fadeUp 0.8s 0.45s ease both;
+}
+
+.table-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.table-toggle-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.table-toggle-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--border-strong);
+  padding: 6px 12px;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.table-toggle-btn:hover { background: rgba(200,75,47,0.06); }
+
+.growth-table-collapsible {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.growth-table-collapsible.expanded {
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 table { width: 100%; border-collapse: collapse; }
@@ -1044,6 +1148,12 @@ td:not(:first-child) { text-align: right; }
 
 .projects-section { animation: fadeUp 0.8s 0.28s ease both; }
 
+.projects-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 /* Main project card — wide layout */
 .project-card-main {
   background: var(--paper);
@@ -1283,6 +1393,55 @@ td:not(:first-child) { text-align: right; }
   color: var(--accent3);
 }
 
+/* Architecture flow rows (used by Vision Bridge panel) */
+.flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flow-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.flow-index {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--bg);
+  background: var(--accent3);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.flow-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.flow-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.flow-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
 /* Status strip at bottom of card */
 .project-status-strip {
   background: rgba(26,21,16,0.03);
@@ -1358,6 +1517,8 @@ td:not(:first-child) { text-align: right; }
   .identity-grid { grid-template-columns: 1fr 1fr; }
   .id-card.span2 { grid-column: span 2; }
   .stats-band { grid-template-columns: 1fr 1fr; }
+  .eng-band { grid-template-columns: 1fr 1fr; }
+  .eng-cell:nth-child(2n) { border-right: none; }
   .platforms-grid { grid-template-columns: 1fr 1fr; }
   .work-body { grid-template-columns: 1fr; }
   .work-cta { grid-template-columns: 1fr; }
@@ -1370,6 +1531,23 @@ td:not(:first-child) { text-align: right; }
   .project-card-body { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 24px; }
   .project-card-panel { padding: 24px; }
   .project-status-strip { flex-wrap: wrap; gap: 16px; padding: 14px 24px; }
+
+  /* Footer responsive — stack instead of squeezing onto one row */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .footer-right { text-align: left; line-height: 1.6; }
+}
+
+@media (max-width: 480px) {
+  .eng-band { grid-template-columns: 1fr; }
+  .eng-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .eng-cell:last-child { border-bottom: none; }
+  .stats-band { grid-template-columns: 1fr; }
+  .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-cell:last-child { border-bottom: none; }
 }
 </style>
 </head>
@@ -1477,15 +1655,15 @@ td:not(:first-child) { text-align: right; }
   <!-- HERO -->
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-tag">Personal Brand Dashboard · 2025–2026</div>
+      <div class="hero-tag">Robotics Engineer · Builder · 2025–2026</div>
       <div class="hero-name">
         Satyarth<br>
         <span class="italic">Shree.</span>
       </div>
       <div class="hero-role">
-        BTech Robotics & Automation · <strong>Lovely Professional University</strong><br>
-        Founder of <strong>ROS Simplified</strong> — a beginner-focused ROS 2 tutorial series.<br>
-        Writer · Builder · Technical Educator.
+        <strong>Robotics Engineer</strong> — Integrating ROS 2 with Computer Vision Systems.<br>
+        BTech Robotics & Automation · <strong>Lovely Professional University</strong>.<br>
+        Also the founder of <strong>ROS Simplified</strong>, a ROS 2 tutorial series — because building things well and explaining them clearly come from the same habit of understanding mechanisms, not just using them.
       </div>
     </div>
     <div class="hero-right">
@@ -1494,9 +1672,9 @@ td:not(:first-child) { text-align: right; }
         Active · Building
       </div>
       <div class="hero-links">
-        <a class="hero-link" href="https://rossimplified.substack.com" target="_blank" rel="noopener">rossimplified.substack.com</a>
-        <a class="hero-link" href="https://medium.com/@satyarthshree45" target="_blank" rel="noopener">medium.com/@satyarthshree45</a>
         <a class="hero-link" href="https://github.com/Satyarth-Shree" target="_blank" rel="noopener">github.com/Satyarth-Shree</a>
+        <a class="hero-link" href="https://github.com/Satyarth-Shree/visionbridge-ros2-zmq-opencv" target="_blank" rel="noopener">Vision Bridge — latest build</a>
+        <a class="hero-link" href="https://rossimplified.substack.com" target="_blank" rel="noopener">rossimplified.substack.com</a>
         <a class="hero-link" href="https://www.linkedin.com/in/satyarth-shree-761357374/" target="_blank" rel="noopener">linkedin.com/in/satyarth-shree</a>
         <a class="hero-link" href="https://docs.satyarthshree.com" target="_blank" rel="noopener">docs.satyarthshree.com</a>
       </div>
@@ -1540,169 +1718,288 @@ td:not(:first-child) { text-align: right; }
     </div>
   </div>
 
-  <!-- SECTION 2: BLOG STATS -->
-  <div class="section-head">
-    <span class="section-num">ii.</span>
-    <span class="section-title">Blog Growth · May 2025 – May 2026</span>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="stats-band">
-    <div class="stat-cell">
-      <div class="stat-num">4,764<span class="unit"> views</span></div>
-      <div class="stat-desc">Total views across <strong>13 months</strong> of publishing</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">2,173<span class="unit"> reads</span></div>
-      <div class="stat-desc">People who actually <strong>read through</strong> the content</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">46<span class="unit">%</span></div>
-      <div class="stat-desc">Average <strong>read ratio</strong> — above the Medium average for technical content</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">248<span class="unit">×</span></div>
-      <div class="stat-desc">Views growth from <strong>May '25 → May '26</strong> — 4 views to 991 — best month on record</div>
-    </div>
-  </div>
-
-  <!-- CHART -->
-  <div class="chart-wrap" style="margin-top:2px">
-    <div class="chart-meta">
-      <div>
-        <div class="chart-title">Monthly Views & <em>Reads</em></div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;font-family:'Space Mono',monospace">13 months · started 28 May 2025</div>
-      </div>
-      <div class="chart-legend">
-        <div class="leg-item"><div class="leg-swatch" style="background:var(--ink);opacity:0.3"></div>Views</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:var(--accent)"></div>Reads</div>
-      </div>
-    </div>
-    <div class="chart-bars" id="chart"></div>
-  </div>
-
   <!-- =============================================
-       SECTION iii — TECHNICAL PROJECTS (NEW)
-       Placed between blog stats and platforms.
-       Rationale: the reader has just seen your
-       publishing reach; now they see the code
-       behind it — proving you build, not just write.
+       SECTION ii — TECHNICAL PROJECTS
+       Moved to lead position, right after Identity.
+       Rationale: this page should read "builder who
+       writes" not "writer who also codes" — so the
+       proof of building comes first, before any blog
+       metrics. Most substantial project leads.
        ============================================= -->
   <div class="section-head">
-    <span class="section-num">iii.</span>
+    <span class="section-num">ii.</span>
     <span class="section-title">Technical Projects</span>
     <div class="section-line"></div>
   </div>
 
   <div class="projects-section">
-    <div class="project-card-main">
+    <div class="projects-stack">
 
-      <!-- Left: narrative body -->
-      <div class="project-card-body">
-        <div class="project-eyebrow">ROS 2 · Python · Robotics</div>
-        <div class="project-title">Turtle Writer</div>
-        <div class="project-subtitle">ros2-turtle-writer · v1.0 · Released 19 June 2026</div>
+      <!-- PROJECT 1: Vision Bridge -->
+      <div class="project-card-main">
 
-        <p class="project-desc">
-          A ROS 2 project that programs <strong>turtlesim</strong> to draw the letters of the alphabet — one module per character. The motion of each letter is derived from <strong>coordinate geometry calculated by hand</strong>, then fed into a modular Python codebase where topics, publishers, subscribers, and the service-client pattern all work in concert.
-          <br><br>
-          The deliberate choice to calculate coordinates manually — rather than using a drawing library — turned a straightforward demo into a practical exercise in applying geometry to real robot motion planning. This is the kind of thinking the tutorial series is built on: understanding a concept well enough to use it, not just repeat it.
-        </p>
+        <!-- Left: narrative body -->
+        <div class="project-card-body">
+          <div class="project-eyebrow">ROS 2 · ZeroMQ · OpenCV</div>
+          <div class="project-title">Vision Bridge</div>
+          <div class="project-subtitle">visionbridge-ros2-zmq-opencv · v1.0 · Released 23 June 2026</div>
 
-        <div class="tech-tags">
-          <span class="tech-tag highlight">ROS 2 Jazzy</span>
-          <span class="tech-tag highlight">rclpy</span>
-          <span class="tech-tag highlight">Topics & Pub-Sub</span>
-          <span class="tech-tag highlight">Services & Clients</span>
-          <span class="tech-tag">turtlesim</span>
-          <span class="tech-tag">Coordinate Geometry</span>
-          <span class="tech-tag">Modular Architecture</span>
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Ubuntu 24.04</span>
-          <span class="tech-tag">colcon build</span>
+          <p class="project-desc">
+            A multi-process color generator system built around a single design principle: <strong>components that serve different purposes should live in different environments</strong>, even when that makes communication harder. A ROS 2 publisher takes RGB intensity input from the user and sends it over a <strong>custom ROS message type</strong> to a subscriber node, which then bridges the data — via <strong>ZeroMQ</strong> — to an independent OpenCV process running in its own virtual environment, isolated from the ROS 2 install.
+            <br><br>
+            The ZeroMQ bridge wasn't the first approach tried. An earlier version used Python's <strong>shared memory / multiprocessing</strong> to connect the two environments, but synchronization issues introduced race conditions; adding locks to fix that made the communication layer too complex to justify. Replacing it with ZeroMQ's pub-sub architecture eliminated the race condition entirely while keeping the two environments fully decoupled — the kind of trade-off that only shows up once you've built the wrong version first.
+            <br><br>
+            A separate <strong>launch orchestration layer</strong> (built on <code>pexpect</code> and <code>pathlib</code>) automates what would otherwise require three manually-opened terminals — one each for the publisher, the subscriber/bridge, and the OpenCV process — so the system can be started with a single command.
+          </p>
+
+          <div class="tech-tags">
+            <span class="tech-tag highlight">ROS 2 Jazzy</span>
+            <span class="tech-tag highlight">ZeroMQ</span>
+            <span class="tech-tag highlight">OpenCV</span>
+            <span class="tech-tag highlight">Custom ROS Messages</span>
+            <span class="tech-tag">rclpy</span>
+            <span class="tech-tag">pexpect</span>
+            <span class="tech-tag">pathlib</span>
+            <span class="tech-tag">Isolated Virtualenvs</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Ubuntu 24.04</span>
+          </div>
+
+          <div class="project-links">
+            <a class="proj-link primary" href="https://github.com/Satyarth-Shree/visionbridge-ros2-zmq-opencv" target="_blank" rel="noopener">
+              ⌥ View on GitHub
+            </a>
+            <a class="proj-link secondary" href="https://rossimplified.substack.com" target="_blank" rel="noopener">
+              Read the tutorials →
+            </a>
+          </div>
         </div>
 
-        <div class="project-links">
-          <a class="proj-link primary" href="https://github.com/Satyarth-Shree/ros2-turtle-writer" target="_blank" rel="noopener">
-            ⌥ View on GitHub
-          </a>
-          <a class="proj-link secondary" href="https://rossimplified.substack.com" target="_blank" rel="noopener">
-            Read the tutorials →
-          </a>
+        <!-- Right: technical breakdown panel -->
+        <div class="project-card-panel">
+
+          <div class="panel-block">
+            <div class="panel-label">System Architecture</div>
+            <div class="flow-list">
+              <div class="flow-row">
+                <div class="flow-index">1</div>
+                <div class="flow-text">
+                  <div class="flow-name">ROS 2 Pub-Sub</div>
+                  <div class="flow-sub">custom Color.msg · intensity 0–255</div>
+                </div>
+              </div>
+              <div class="flow-row">
+                <div class="flow-index">2</div>
+                <div class="flow-text">
+                  <div class="flow-name">ZeroMQ Bridge</div>
+                  <div class="flow-sub">cross-environment, race-free</div>
+                </div>
+              </div>
+              <div class="flow-row">
+                <div class="flow-index">3</div>
+                <div class="flow-text">
+                  <div class="flow-name">OpenCV Process</div>
+                  <div class="flow-sub">isolated venv · renders color</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-block">
+            <div class="panel-label">Key Design Decision</div>
+            <div class="concept-list">
+              <div class="concept-row">
+                <div class="concept-dot red"></div>
+                <div class="concept-name">Shared Memory</div>
+                <div class="concept-sub">rejected · race conditions</div>
+              </div>
+              <div class="concept-row">
+                <div class="concept-dot blue"></div>
+                <div class="concept-name">ZeroMQ</div>
+                <div class="concept-sub">adopted · zero race risk</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-block">
+            <div class="panel-label">Packages</div>
+            <div class="concept-list">
+              <div class="concept-row">
+                <div class="concept-dot gold"></div>
+                <div class="concept-name">visionbridge_interfaces</div>
+                <div class="concept-sub">C++ · msg defs</div>
+              </div>
+              <div class="concept-row">
+                <div class="concept-dot green"></div>
+                <div class="concept-name">visionbridge_ros</div>
+                <div class="concept-sub">Python · nodes</div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Status strip spanning full width -->
+        <div class="project-status-strip">
+          <div class="status-item"><strong>Language</strong> &nbsp; Python 98.6% · CMake 1.4%</div>
+          <div class="status-sep"></div>
+          <div class="status-item"><strong>Distro</strong> &nbsp; ROS 2 Jazzy · Ubuntu 24.04</div>
+          <div class="status-sep"></div>
+          <div class="status-item"><strong>Status</strong> &nbsp; v1.0 · MIT Licensed</div>
+          <div class="status-sep"></div>
+          <div class="status-item"><strong>Subsystems</strong> &nbsp; ROS 2 · OpenCV · ZeroMQ bridge</div>
+        </div>
+
       </div>
 
-      <!-- Right: technical breakdown panel -->
-      <div class="project-card-panel">
+      <!-- PROJECT 2: Turtle Writer -->
+      <div class="project-card-main">
 
-        <div class="panel-block">
-          <div class="panel-label">ROS 2 Concepts Applied</div>
-          <div class="concept-list">
-            <div class="concept-row">
-              <div class="concept-dot blue"></div>
-              <div class="concept-name">Topics</div>
-              <div class="concept-sub">pub → /turtle1/cmd_vel</div>
-            </div>
-            <div class="concept-row">
-              <div class="concept-dot green"></div>
-              <div class="concept-name">Publisher / Subscriber</div>
-              <div class="concept-sub">motion commands</div>
-            </div>
-            <div class="concept-row">
-              <div class="concept-dot red"></div>
-              <div class="concept-name">Services</div>
-              <div class="concept-sub">/turtle1/teleport_absolute</div>
-            </div>
-            <div class="concept-row">
-              <div class="concept-dot gold"></div>
-              <div class="concept-name">Service Client</div>
-              <div class="concept-sub">pen control & reset</div>
-            </div>
+        <!-- Left: narrative body -->
+        <div class="project-card-body">
+          <div class="project-eyebrow">ROS 2 · Python · Robotics</div>
+          <div class="project-title">Turtle Writer</div>
+          <div class="project-subtitle">ros2-turtle-writer · v1.0 · Released 19 June 2026</div>
+
+          <p class="project-desc">
+            A ROS 2 project that programs <strong>turtlesim</strong> to draw the letters of the alphabet — one module per character. The motion of each letter is derived from <strong>coordinate geometry calculated by hand</strong>, then fed into a modular Python codebase where topics, publishers, subscribers, and the service-client pattern all work in concert.
+            <br><br>
+            The deliberate choice to calculate coordinates manually — rather than using a drawing library — turned a straightforward demo into a practical exercise in applying geometry to real robot motion planning. This is the kind of thinking the tutorial series is built on: understanding a concept well enough to use it, not just repeat it.
+          </p>
+
+          <div class="tech-tags">
+            <span class="tech-tag highlight">ROS 2 Jazzy</span>
+            <span class="tech-tag highlight">rclpy</span>
+            <span class="tech-tag highlight">Topics & Pub-Sub</span>
+            <span class="tech-tag highlight">Services & Clients</span>
+            <span class="tech-tag">turtlesim</span>
+            <span class="tech-tag">Coordinate Geometry</span>
+            <span class="tech-tag">Modular Architecture</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Ubuntu 24.04</span>
+            <span class="tech-tag">colcon build</span>
+          </div>
+
+          <div class="project-links">
+            <a class="proj-link primary" href="https://github.com/Satyarth-Shree/ros2-turtle-writer" target="_blank" rel="noopener">
+              ⌥ View on GitHub
+            </a>
+            <a class="proj-link secondary" href="https://rossimplified.substack.com" target="_blank" rel="noopener">
+              Read the tutorials →
+            </a>
           </div>
         </div>
 
-        <div class="panel-block">
-          <div class="panel-label">Alphabet Progress</div>
-          <div class="alpha-grid" id="alphaGrid"></div>
-          <div style="margin-top:10px;font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:0.08em">
-            <span style="display:inline-block;width:10px;height:10px;background:var(--accent3);border-radius:1px;vertical-align:middle;margin-right:5px"></span>Done &nbsp;
-            <span style="display:inline-block;width:10px;height:10px;background:rgba(29,78,137,0.15);border:1px solid rgba(29,78,137,0.3);border-radius:1px;vertical-align:middle;margin-right:5px"></span>In Progress
+        <!-- Right: technical breakdown panel -->
+        <div class="project-card-panel">
+
+          <div class="panel-block">
+            <div class="panel-label">ROS 2 Concepts Applied</div>
+            <div class="concept-list">
+              <div class="concept-row">
+                <div class="concept-dot blue"></div>
+                <div class="concept-name">Topics</div>
+                <div class="concept-sub">pub → /turtle1/cmd_vel</div>
+              </div>
+              <div class="concept-row">
+                <div class="concept-dot green"></div>
+                <div class="concept-name">Publisher / Subscriber</div>
+                <div class="concept-sub">motion commands</div>
+              </div>
+              <div class="concept-row">
+                <div class="concept-dot red"></div>
+                <div class="concept-name">Services</div>
+                <div class="concept-sub">/turtle1/teleport_absolute</div>
+              </div>
+              <div class="concept-row">
+                <div class="concept-dot gold"></div>
+                <div class="concept-name">Service Client</div>
+                <div class="concept-sub">pen control & reset</div>
+              </div>
+            </div>
           </div>
+
+          <div class="panel-block">
+            <div class="panel-label">Alphabet Progress</div>
+            <div class="alpha-grid" id="alphaGrid"></div>
+            <div style="margin-top:10px;font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:0.08em">
+              <span style="display:inline-block;width:10px;height:10px;background:var(--accent3);border-radius:1px;vertical-align:middle;margin-right:5px"></span>Done &nbsp;
+              <span style="display:inline-block;width:10px;height:10px;background:rgba(29,78,137,0.15);border:1px solid rgba(29,78,137,0.3);border-radius:1px;vertical-align:middle;margin-right:5px"></span>In Progress
+            </div>
+          </div>
+
+          <div class="panel-block">
+            <div class="panel-label">Architecture</div>
+            <div class="concept-list">
+              <div class="concept-row">
+                <div class="concept-dot blue"></div>
+                <div class="concept-name">Modular</div>
+                <div class="concept-sub">1 module / letter</div>
+              </div>
+              <div class="concept-row">
+                <div class="concept-dot green"></div>
+                <div class="concept-name">MIT Licensed</div>
+                <div class="concept-sub">open source</div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="panel-block">
-          <div class="panel-label">Architecture</div>
-          <div class="concept-list">
-            <div class="concept-row">
-              <div class="concept-dot blue"></div>
-              <div class="concept-name">Modular</div>
-              <div class="concept-sub">1 module / letter</div>
-            </div>
-            <div class="concept-row">
-              <div class="concept-dot green"></div>
-              <div class="concept-name">MIT Licensed</div>
-              <div class="concept-sub">open source</div>
-            </div>
-          </div>
+        <!-- Status strip spanning full width -->
+        <div class="project-status-strip">
+          <div class="status-item"><strong>Language</strong> &nbsp; Python 100%</div>
+          <div class="status-sep"></div>
+          <div class="status-item"><strong>Distro</strong> &nbsp; ROS 2 Jazzy · Ubuntu 24.04</div>
+          <div class="status-sep"></div>
+          <div class="status-item"><strong>Status</strong> &nbsp; v1.0 · Active development</div>
+          <div class="status-sep"></div>
+          <div class="status-item"><strong>Letters complete</strong> &nbsp; A, H, C</div>
         </div>
 
-      </div>
-
-      <!-- Status strip spanning full width -->
-      <div class="project-status-strip">
-        <div class="status-item"><strong>Language</strong> &nbsp; Python 100%</div>
-        <div class="status-sep"></div>
-        <div class="status-item"><strong>Distro</strong> &nbsp; ROS 2 Jazzy · Ubuntu 24.04</div>
-        <div class="status-sep"></div>
-        <div class="status-item"><strong>Status</strong> &nbsp; v1.0 · Active development</div>
-        <div class="status-sep"></div>
-        <div class="status-item"><strong>Letters complete</strong> &nbsp; A, H, C</div>
       </div>
 
     </div>
   </div>
 
-  <!-- SECTION iv: PLATFORM PRESENCE (was iii) -->
+  <!-- =============================================
+       SECTION iii — ENGINEERING HIGHLIGHTS (NEW)
+       Builder-metric counterpart to the old blog
+       stats-band. Surfaces signals that prove
+       engineering rigor, not just publishing reach.
+       ============================================= -->
+  <div class="section-head">
+    <span class="section-num">iii.</span>
+    <span class="section-title">Engineering Highlights</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="eng-band">
+    <div class="eng-cell">
+      <div class="eng-num">2<span class="unit"> patterns</span></div>
+      <div class="eng-label">Dead-Reckoning Node</div>
+      <div class="eng-desc">A turtlesim node combining a <strong>cmd_vel</strong> publisher with a <strong>TeleportAbsolute</strong> service client in one place, instead of splitting motion and correction across separate nodes</div>
+    </div>
+    <div class="eng-cell">
+      <div class="eng-num">3<span class="unit"> systems</span></div>
+      <div class="eng-label">Isolated Subsystems</div>
+      <div class="eng-desc"><strong>ROS 2, ZeroMQ, OpenCV</strong> running in separate environments in Vision Bridge — bridged deliberately, not duct-taped together</div>
+    </div>
+    <div class="eng-cell">
+      <div class="eng-num">1<span class="unit"> rewrite</span></div>
+      <div class="eng-label">Architecture Decision</div>
+      <div class="eng-desc">Shared-memory + locks <strong>rejected</strong> after race conditions surfaced; rebuilt on ZeroMQ pub-sub instead of patching around the bug</div>
+    </div>
+    <div class="eng-cell">
+      <div class="eng-num">2<span class="unit"> packages</span></div>
+      <div class="eng-label">Custom ROS Interfaces</div>
+      <div class="eng-desc">Hand-defined <strong>message types</strong> and a <code>pexpect</code>-based launch orchestration layer replacing manual multi-terminal startup</div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       SECTION iv — PLATFORM PRESENCE
+       ============================================= -->
   <div class="section-head">
     <span class="section-num">iv.</span>
     <span class="section-title">Platform Presence</span>
@@ -1751,7 +2048,9 @@ td:not(:first-child) { text-align: right; }
     </div>
   </div>
 
-  <!-- SECTION v: TIMELINE (was iv) -->
+  <!-- =============================================
+       SECTION v — TIMELINE
+       ============================================= -->
   <div class="section-head">
     <span class="section-num">v.</span>
     <span class="section-title">Building in Public · Timeline</span>
@@ -1763,91 +2062,120 @@ td:not(:first-child) { text-align: right; }
       <div class="tl-date">May 2025</div>
       <div class="tl-line-wrap"><div class="tl-dot red"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
-        <div class="tl-event">Day Zero — First Post Published</div>
-        <div class="tl-detail">4 views, 2 reads in the first month — the starting point for the publication.</div>
+        <div class="tl-event">Day Zero — First Tutorial Published</div>
+        <div class="tl-detail">4 views, 2 reads in the first month — the starting point for ROS Simplified.</div>
       </div>
     </div>
     <div class="tl-item">
-      <div class="tl-date">Jun–Sep 2025</div>
-      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-event">Early Stage — Format Experimentation</div>
-        <div class="tl-detail">Volatile numbers, with a dip in Aug–Sep. Format experiments during this period — analogies, "Common Mistakes" sections, and hands-on experiment-based structure were introduced and iterated on.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-date">Oct 2025</div>
+      <div class="tl-date">Oct 2025 – May 2026</div>
       <div class="tl-line-wrap"><div class="tl-dot gold"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
-        <div class="tl-event">October — First 100+ View Month</div>
-        <div class="tl-detail">114 views in October — the first time the publication cleared that threshold. No subsequent month has dropped below it.</div>
+        <div class="tl-event">Steady Compounding — 4 Views to 991</div>
+        <div class="tl-detail">From October's first 100+ view month through May's all-time high of 991 views and 247 subscribers, the publication grew 248× across 13 months while 8 tutorial parts shipped. Full breakdown in the Writing & Publishing section below.</div>
       </div>
     </div>
     <div class="tl-item">
-      <div class="tl-date">Nov–Dec 2025</div>
-      <div class="tl-line-wrap"><div class="tl-dot green"></div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-event">Q4 2025 — First Back-to-Back 100+ Read Months</div>
-        <div class="tl-detail">Nov: 232 views / 115 reads. Dec: 275 views / 140 reads. First consecutive months exceeding 100 reads, indicating a returning readership rather than one-off traffic.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-date">Jan–Mar 2026</div>
-      <div class="tl-line-wrap"><div class="tl-dot red"></div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-event">Q1 2026 — Three Consecutive Record Months</div>
-        <div class="tl-detail">410 → 394 → 760 views across January, February, and March. March closed at 760 views and 388 reads — the highest single-month figures since launch. Q1 2026 alone accounted for more traffic than all of Q4 2025 combined.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-date">Apr–May 2026</div>
-      <div class="tl-line-wrap"><div class="tl-dot gold"></div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-event">Q2 2026 — New All-Time High & 247 Subscribers</div>
-        <div class="tl-detail">Apr: 824 views / 356 reads. May: 991 views / 374 reads — the highest single-month view count since launch, surpassing March's previous record. Substack subscriber count grew from 110 to 247, a 125% increase, reflecting sustained audience compounding alongside Parts 6, 7 &amp; 8 of the tutorial series.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-date">Jun 2026</div>
+      <div class="tl-date">Turtlesim Project</div>
       <div class="tl-line-wrap"><div class="tl-dot blue"></div><div class="tl-connector"></div></div>
       <div class="tl-content">
-        <div class="tl-event">Turtle Writer v1.0 — First Project Release</div>
-        <div class="tl-detail">ros2-turtle-writer released on 19 June 2026. A Python project using turtlesim to draw alphabets via hand-calculated coordinate geometry — putting publisher, subscriber, and service-client patterns to practical use.</div>
+        <div class="tl-event">Dead-Reckoning Node — cmd_vel + TeleportAbsolute</div>
+        <div class="tl-detail">A single node combining a <code>cmd_vel</code> publisher and a <code>TeleportAbsolute</code> service client in one place — pairing motion commands with ground-truth correction inside the same node rather than treating them as separate concerns.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">19 Jun 2026</div>
+      <div class="tl-line-wrap"><div class="tl-dot green"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">Turtle Writer v1.0 — Geometry Into Motion</div>
+        <div class="tl-detail">A modular ROS 2 codebase that draws alphabet letters in turtlesim using hand-calculated coordinate geometry, exercising topics, publishers, subscribers, and the service-client pattern in one project.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">23 Jun 2026</div>
+      <div class="tl-line-wrap"><div class="tl-dot blue"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">Vision Bridge v1.0 — Most Substantial Build Yet</div>
+        <div class="tl-detail">A three-subsystem color generator bridging ROS 2 and an isolated OpenCV process via ZeroMQ, after an earlier shared-memory approach was rejected for race conditions. Custom ROS message types, a <code>pexpect</code>-based launch orchestrator, and a deliberate decoupled-environments architecture.</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">Ongoing</div>
       <div class="tl-line-wrap"><div class="tl-dot blue"></div></div>
       <div class="tl-content">
-        <div class="tl-event">247 Substack Subscribers · 8 Parts Published · 1 Project Live</div>
-        <div class="tl-detail">An engineering student maintaining an active publication with a custom domain, multi-platform distribution, a measurably growing subscriber base across 13 months, and a public codebase demonstrating the same ROS 2 concepts taught in the series.</div>
+        <div class="tl-event">2 Projects Live · 247 Subscribers · 8 Parts Published</div>
+        <div class="tl-detail">An engineering student actively shipping ROS 2 systems — Vision Bridge and Turtle Writer — while maintaining a publication that documents the same concepts those systems put into practice.</div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION vi: MONTHLY TABLE (was v) -->
+  <!-- =============================================
+       SECTION vi — WRITING & PUBLISHING
+       Merged: identity card removed (lives in i.),
+       stats-band + chart + monthly table compacted
+       into one section, table collapsed by default.
+       ============================================= -->
   <div class="section-head">
     <span class="section-num">vi.</span>
-    <span class="section-title">Monthly Data Table</span>
+    <span class="section-title">Writing & Publishing · ROS Simplified</span>
     <div class="section-line"></div>
   </div>
 
-  <div class="growth-table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Month</th>
-          <th>Views</th>
-          <th>Reads</th>
-          <th>Ratio</th>
-          <th>MoM</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
+  <div class="stats-band">
+    <div class="stat-cell">
+      <div class="stat-num">4,764<span class="unit"> views</span></div>
+      <div class="stat-desc">Total views across <strong>13 months</strong> of publishing</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">2,173<span class="unit"> reads</span></div>
+      <div class="stat-desc">People who actually <strong>read through</strong> the content</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">46<span class="unit">%</span></div>
+      <div class="stat-desc">Average <strong>read ratio</strong> — above the Medium average for technical content</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">248<span class="unit">×</span></div>
+      <div class="stat-desc">Views growth from <strong>May '25 → May '26</strong> — 4 views to 991 — best month on record</div>
+    </div>
   </div>
 
-  <!-- SECTION vii: WHAT I CAN DO (was vi) -->
+  <!-- CHART -->
+  <div class="chart-wrap" style="margin-top:2px">
+    <div class="chart-meta">
+      <div>
+        <div class="chart-title">Monthly Views & <em>Reads</em></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;font-family:'Space Mono',monospace">13 months · started 28 May 2025</div>
+      </div>
+      <div class="chart-legend">
+        <div class="leg-item"><div class="leg-swatch" style="background:var(--ink);opacity:0.3"></div>Views</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:var(--accent)"></div>Reads</div>
+      </div>
+    </div>
+    <div class="chart-bars" id="chart"></div>
+  </div>
+
+  <div class="table-toggle-row" id="tableToggleRow" style="margin-top:2px">
+    <span class="table-toggle-label">Full month-by-month breakdown</span>
+    <button class="table-toggle-btn" id="tableToggleBtn" type="button">Show table ▾</button>
+  </div>
+  <div class="growth-table-collapsible" id="tableCollapsible">
+    <div class="growth-table-wrap" style="border-top:none">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Views</th>
+            <th>Reads</th>
+            <th>Ratio</th>
+            <th>MoM</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION vii: WHAT I CAN DO -->
   <div class="section-head">
     <span class="section-num">vii.</span>
     <span class="section-title">What I Can Do For You</span>
@@ -1858,7 +2186,7 @@ td:not(:first-child) { text-align: right; }
 
     <div class="work-intro">
       <div class="work-intro-text">
-        I help robotics and developer-focused products become <em style="font-style:italic;color:var(--accent)">easier to understand, adopt, and use.</em>
+        I build <em style="font-style:italic;color:var(--accent)">robotics systems that work</em> — and because I also write ROS Simplified, I can hand them off in a way your team actually understands.
       </div>
     </div>
 
@@ -1866,9 +2194,10 @@ td:not(:first-child) { text-align: right; }
       <div class="work-card">
         <div class="work-card-label">I Specialize In</div>
         <ul class="specialism-list">
-          <li class="specialism-item">Beginner-friendly ROS 2 tutorials and documentation</li>
-          <li class="specialism-item">Step-by-step developer onboarding guides</li>
-          <li class="specialism-item">Breaking down complex systems into clear, structured learning paths</li>
+          <li class="specialism-item">Designing ROS 2 node architectures — topics, services, custom message types</li>
+          <li class="specialism-item">Bridging isolated environments (ROS 2 ↔ OpenCV, ROS 2 ↔ external processes) via ZeroMQ</li>
+          <li class="specialism-item">Debugging multi-process systems — race conditions, launch orchestration, synchronization</li>
+          <li class="specialism-item">Documenting the systems I build clearly enough that someone else can maintain them</li>
         </ul>
       </div>
       <div class="work-card">
@@ -1878,19 +2207,19 @@ td:not(:first-child) { text-align: right; }
             <div class="outcome-check">
               <svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg>
             </div>
-            <span class="outcome-text">Faster user onboarding</span>
+            <span class="outcome-text">Working robotics systems, not just demos</span>
           </li>
           <li class="outcome-item">
             <div class="outcome-check">
               <svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg>
             </div>
-            <span class="outcome-text">Reduced confusion</span>
+            <span class="outcome-text">Architecture decisions made deliberately, not by accident</span>
           </li>
           <li class="outcome-item">
             <div class="outcome-check">
               <svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg>
             </div>
-            <span class="outcome-text">Better developer experience</span>
+            <span class="outcome-text">Faster onboarding for whoever inherits the codebase</span>
           </li>
         </ul>
       </div>
@@ -1899,7 +2228,7 @@ td:not(:first-child) { text-align: right; }
     <div class="work-cta">
       <div class="cta-text">
         <div class="cta-headline">
-          If you're building a robotics product, developer tool, or technical platform and want to improve how users <em>understand and adopt it</em> — I can help.
+          If you're building a robotics product, perception pipeline, or any system that needs ROS 2 talking to the outside world — <em>I can build it, and explain it.</em>
         </div>
         <div class="cta-sub">Let's collaborate</div>
       </div>
@@ -1932,8 +2261,8 @@ td:not(:first-child) { text-align: right; }
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-left">Satyarth Shree · Personal Brand Dashboard</div>
-    <div class="footer-right">Data through 31 May 2026 · Complete</div>
+    <div class="footer-left">Satyarth Shree · Robotics Engineer & Builder</div>
+    <div class="footer-right">Projects current as of 23 Jun 2026 · Writing data through 31 May 2026</div>
   </div>
 
 </div>
@@ -1953,6 +2282,17 @@ document.addEventListener('click', e => {
   const menu = document.getElementById('tutorialsMenu');
   if (!menu.contains(e.target)) menu.classList.remove('open');
 });
+
+// Collapsible monthly data table — collapsed by default
+(function() {
+  const btn = document.getElementById('tableToggleBtn');
+  const panel = document.getElementById('tableCollapsible');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', () => {
+    const expanded = panel.classList.toggle('expanded');
+    btn.textContent = expanded ? 'Hide table ▴' : 'Show table ▾';
+  });
+})();
 
 // Alphabet grid — A, H, C done; others queued
 (function() {
