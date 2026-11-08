@@ -6,7 +6,7 @@
 <title>ROS 2 Tutorial Part 1: Create Your First Workspace & Package · ROS Simplified</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
 :root {
   --bg:       #f7f4ef;
@@ -461,6 +461,296 @@ footer {
 .fu { animation: fadeUp 0.6s ease both; }
 .fu1 { animation-delay: 0.05s; } .fu2 { animation-delay: 0.15s; }
 .fu3 { animation-delay: 0.25s; } .fu4 { animation-delay: 0.35s; }
+
+/* =========================================================
+   NEO-BRUTALISM OVERRIDE LAYER
+   ========================================================= */
+:root {
+  --bg:         #fff8e7;
+  --surface:    #ffffff;
+  --surface2:   #ffe94a;
+  --border:     #111111;
+  --accent:     #ff4911;
+  --accent2:    #1d4e89;
+  --accent-dim: rgba(255,73,17,0.08);
+  --text:       #111111;
+  --text-muted: #444444;
+  --text-dim:   #444444;
+  --code-bg:    #111111;
+  --heading:    #111111;
+  --green:      #00695c;
+  --green-bg:   #8af5e4;
+  --hard:       5px 5px 0 #111111;
+  --hard-lg:    8px 8px 0 #111111;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16.5px;
+  line-height: 1.8;
+}
+
+/* kill the dotted texture */
+body::before { content: none; }
+.hero::before, .hero::after { content: none; }
+
+body, h1, h2, h3, h4, .hero-title, .section-label, .nav-site-title {
+  background-clip: initial;
+}
+*,
+.hero, .callout, .info-box, .summary-box, .pub-box, .note,
+pre, .img-wrap, .author-card, .link-card, .next-part, .dd-item,
+.steps > li { border-radius: 0 !important; }
+
+h2, h3, h4 {
+  font-family: 'Archivo Black', 'Outfit', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+a { text-decoration-thickness: 2px; }
+a:hover { background: #ffe94a; color: #111; }
+
+.hero-title { font-family: 'Archivo Black', 'Outfit', sans-serif; text-transform: uppercase; line-height: 1.05; }
+.hero-tag {
+  background: #ffe94a;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #111;
+  color: #111;
+  font-weight: 700;
+}
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.hero-tag { box-shadow: 3px 3px 0 #111; }
+.hero-divider { border-top: 3px solid #111; }
+.hero-title em { font-style: normal; color: var(--accent); text-shadow: 3px 3px 0 #a6faff; }
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  display: inline-block;
+  background: #ffb3c7;
+  border: 3px solid #111;
+  box-shadow: 3px 3px 0 #111;
+  padding: 4px 12px;
+}
+.section-label::before { content: none; }
+
+/* typography bricks */
+.callout, .info-box, .summary-box, .pub-box, .note, .author-card {
+  border: 3px solid #111;
+  box-shadow: var(--hard);
+  background: var(--surface);
+}
+.callout { background: #ffb3c7; }
+.info-box { background: #a6faff; }
+.summary-box { background: #8af5e4; }
+.note { background: #ffe94a; border: 2px solid #111; box-shadow: 3px 3px 0 #111; }
+.pub-box { background: var(--surface); }
+.callout *, .info-box *, .summary-box *, .note * { color: #111; }
+.info-box-title {
+  background: #111;
+  color: #fff !important;
+  padding: 4px 10px;
+  display: inline-block;
+}
+.info-box-title::after { content: none; }
+.note-icon { font-size: 20px; color: #111; }
+
+/* code */
+pre {
+  border: 3px solid #111;
+  box-shadow: var(--hard);
+}
+pre.output { background: #1e1a16; }
+pre::before {
+  color: #ffe94a;
+  font-weight: 700;
+}
+.cmd-highlight { box-shadow: inset 0 -2px 0 #ffe94a; }
+
+/* media & lists */
+.img-wrap {
+  border: 3px solid #111;
+  box-shadow: var(--hard);
+}
+.img-caption {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 11px;
+}
+.steps > li:hover { background: #a6faff; }
+
+/* nav */
+nav.top-nav {
+  background: #111;
+  border-bottom: 3px solid #111;
+  backdrop-filter: none;
+}
+.nav-site-title, .nav-logo { color: #fff8e7; }
+.nav-logo { background: var(--accent); border: 2px solid #fff8e7; border-radius: 0; font-weight: 900; }
+.nav-link, .nav-tut-btn { color: #fff8e7; font-weight: 700; }
+.nav-link:hover, .nav-tut-btn:hover { color: var(--accent); background: transparent; }
+.nav-badge {
+  background: #ffe94a;
+  color: #111;
+  border: 2px solid #111;
+  box-shadow: 2px 2px 0 #fff8e7;
+  font-weight: 700;
+}
+.nav-dropdown {
+  border: 3px solid #111;
+  box-shadow: var(--hard-lg);
+  border-radius: 0;
+}
+.dd-header {
+  background: #ffb3c7;
+  border-bottom: 3px solid #111;
+  color: #111;
+}
+.dd-item { border-bottom: 2px solid #111; }
+.dd-item:hover { background: #a6faff; }
+.dd-badge {
+  background: #ffe94a;
+  border: 2px solid #111;
+  color: #111;
+  font-weight: 700;
+}
+.dd-icon { font-size: 17px; }
+
+/* hero cards / link cards */
+.author-card { background: #a6faff; }
+.link-card {
+  border: 3px solid #111;
+  box-shadow: var(--hard);
+  background: var(--surface);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.link-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--hard-lg);
+  background: #ffe94a;
+}
+.link-card-label { font-weight: 700; }
+.link-card-title { font-family: 'Archivo Black', 'Outfit', sans-serif; }
+.link-card-arr { transition: transform 0.12s; }
+
+/* connect buttons */
+.connect-link {
+  border: 2px solid #111;
+  box-shadow: 3px 3px 0 #111;
+  font-weight: 700;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.connect-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #111;
+  color: #111;
+}
+
+/* next-part banner */
+.next-part {
+  border: 3px solid #111;
+  box-shadow: var(--hard-lg);
+  background: #ffe94a;
+  color: #111;
+}
+.next-btn {
+  background: #ff4911;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #111;
+  color: #fff;
+  font-weight: 700;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.next-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #111;
+  color: #fff;
+  background: #ff4911;
+}
+
+/* progress bar: solid brick */
+#progress-bar {
+  background: var(--accent);
+  border-right: 3px solid #111;
+  height: 4px;
+}
+
+/* hr flare */
+hr { border-top: 3px solid #111; }
+hr::after { content: none; }
+
+/* footer */
+footer { background: #111; color: #fff8e7; border-top: 3px solid #111; }
+/* =========================================
+   MOBILE HARDENING — zero-overlap pass
+   (this page ships with no base breakpoints)
+   ========================================= */
+@media (max-width: 700px) {
+  /* Nav: tighter, drop the read-time chip */
+  nav.top-nav { padding: 0 14px; }
+  .nav-link, .nav-tut-btn { padding: 0 8px; }
+  .read-time { display: none; }
+
+  /* Hero: tighter padding, wrapped tags */
+  .hero { padding: 3.5rem 1.3rem 3rem; }
+  .hero-title { line-height: 1.08; }
+  .hero-tags { flex-wrap: wrap; }
+
+  /* Boxes & code */
+  .info-box, .summary-box, .pub-box, .callout, .note, .author-card { padding: 1.2rem; }
+  pre { padding: 1rem 0.8rem; }
+  pre code { font-size: 12px; }
+  .cmd-highlight { font-size: 12.5px; padding: 0.8rem 1rem; }
+
+  /* Footer stacks */
+  footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.3rem; }
+  .footer-brand, .footer-copy { text-align: left; }
+}
+
+@media (max-width: 460px) {
+  /* Nav: compress everything so it fits 375–320px with no horizontal spill */
+  nav.top-nav { padding: 0 8px; overflow-x: auto; }
+  .nav-site-title { font-size: 10px; letter-spacing: 0; }
+  .nav-logo { width: 22px; height: 22px; font-size: 9px; }
+  .nav-link, .nav-tut-btn { padding: 0 6px; font-size: 9px; white-space: nowrap; }
+  .nav-badge { display: none; }
+
+  /* Dropdown: full-bleed panel on phones */
+  .nav-dropdown {
+    position: fixed;
+    top: 56px;
+    left: 10px;
+    right: 10px;
+    min-width: 0;
+  }
+  .dd-title, .dd-sub { overflow-wrap: anywhere; }
+  .dd-badge { margin-left: auto; flex-shrink: 0; }
+
+  /* Hero type scale */
+  .hero-title { font-size: 1.9rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .next-title { font-size: 0.92rem; }
+
+  /* Banner / cards */
+  .next-part { padding: 1.2rem; }
+  .link-card { padding: 0.9rem 1rem; gap: 0.7rem; }
+  .link-card-title { overflow-wrap: anywhere; }
+
+  /* Author card */
+  .author-card-avatar, .author-avatar { margin-bottom: 8px; }
+}
+
+/* Never let a long unbroken token blow out any container */
+@media (max-width: 700px) {
+  .hero-tag, .note, .callout, .info-box-title { overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
