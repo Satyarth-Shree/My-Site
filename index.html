@@ -10,7 +10,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satyarth Shree — Robotics Engineering Student & Builder</title>
+<title>Satyarth Shree — Robotics & Backend Engineering Student · Builder</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -516,7 +516,7 @@ body {
 /* ENGINEERING HIGHLIGHTS */
 .eng-band {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 3px;
   background: var(--ink);
   border: 3px solid var(--ink);
@@ -1657,8 +1657,7 @@ td:not(:first-child) { text-align: right; }
 
 @media (max-width: 480px) {
   .eng-band { grid-template-columns: 1fr; }
-  .stats-band { grid-template-columns: 1fr; }
-  .platforms-grid { grid-template-columns: 1fr; }
+  .stats-band { grid-template-columns: 1fr; }  .platforms-grid { grid-template-columns: 1fr; }
   .identity-grid { grid-template-columns: 1fr; }
   .id-card.span2 { grid-column: span 1; }
 }
@@ -1870,14 +1869,14 @@ td:not(:first-child) { text-align: right; }
   <!-- HERO -->
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-tag">Robotics Engineering Student · Builder · 2025–2026</div>
+      <div class="hero-tag">Robotics Engineering Student · Going Deep on Backend · Builder</div>
       <div class="hero-name">
         Satyarth<br>
         <span class="italic">Shree.</span>
       </div>
       <div class="hero-role">
-        <strong>Robotics Engineering Student</strong> — Learning to integrate ROS 2 with Computer Vision Systems.<br>
-        BTech Robotics & Automation · <strong>Lovely Professional University</strong>.<br>
+        <strong>Robotics engineering is where I start, not where I end.</strong><br>
+        BTech Robotics &amp; Automation · <strong>Lovely Professional University</strong> — and increasingly building for the server side: <strong>FastAPI backends, MySQL databases, HTTP endpoints, password hashing, validation layers</strong> — the machinery behind real products.<br>
         Also the founder of <strong>ROS Simplified</strong>, a ROS 2 tutorial series — because building things well and explaining them clearly come from the same habit of understanding mechanisms, not just using them.
       </div>
     </div>
@@ -2331,13 +2330,23 @@ td:not(:first-child) { text-align: right; }
   <div class="eng-band">
     <div class="eng-cell">
       <div class="eng-num">2<span class="unit"> patterns</span></div>
-      <div class="eng-label">Dead-Reckoning Node</div>
+      <div class="eng-label">Dead-Reckoning Node · ROS 2</div>
       <div class="eng-desc">A turtlesim node combining a <strong>cmd_vel</strong> publisher with a <strong>TeleportAbsolute</strong> service client in one place, instead of splitting motion and correction across separate nodes</div>
     </div>
     <div class="eng-cell">
       <div class="eng-num">3<span class="unit"> systems</span></div>
-      <div class="eng-label">Isolated Subsystems</div>
+      <div class="eng-label">Isolated Subsystems · ZeroMQ</div>
       <div class="eng-desc"><strong>ROS 2, ZeroMQ, OpenCV</strong> running in separate environments in Vision Bridge — bridged deliberately, not duct-taped together</div>
+    </div>
+    <div class="eng-cell">
+      <div class="eng-num">1<span class="unit"> backend</span></div>
+      <div class="eng-label">Hand-Coded End to End · FastAPI</div>
+      <div class="eng-desc">A full <strong>FastAPI backend</strong> written by hand: <strong>GET/POST endpoints</strong>, frontend decoupled from server via a proxy, while the UI was AI-generated on purpose — so the engineering focus stays on the server</div>
+    </div>
+    <div class="eng-cell">
+      <div class="eng-num">1<span class="unit"> database</span></div>
+      <div class="eng-label">MySQL Integration · Security</div>
+      <div class="eng-desc"><strong>Pooled MySQL connections</strong> for persistence, <strong>Pydantic models</strong> for server-side validation, and <strong>pwdlib password hashing</strong> — never storing credentials in plain text</div>
     </div>
     <div class="eng-cell">
       <div class="eng-num">1<span class="unit"> rewrite</span></div>
@@ -2454,6 +2463,14 @@ td:not(:first-child) { text-align: right; }
     </div>
     <div class="tl-item">
       <div class="tl-date">Ongoing</div>
+      <div class="tl-line-wrap"><div class="tl-dot gold"></div></div>
+      <div class="tl-content">
+        <div class="tl-event">The Pivot — Robotics Is Where I Start, Not Where I End</div>
+        <div class="tl-detail">Shifting building weight towards backend engineering: the Relax Space FastAPI backend — GET/POST endpoints, Pydantic validation, MySQL pooling, pwdlib password hashing, all hand-coded — while ROS Simplified keeps shipping.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Ongoing</div>
       <div class="tl-line-wrap"><div class="tl-dot blue"></div></div>
       <div class="tl-content">
         <div class="tl-event">3 Projects Live · 247 Subscribers · 8 Parts Published</div>
@@ -2540,7 +2557,7 @@ td:not(:first-child) { text-align: right; }
 
     <div class="work-intro">
       <div class="work-intro-text">
-        I build <em style="font-style:italic;color:var(--accent)">robotics systems that work</em> — and because I also write ROS Simplified, I can hand them off in a way your team actually understands.
+        I build <em style="font-style:italic;color:var(--accent)">systems that work</em> — robotics systems in ROS 2, and server-side systems on FastAPI. And because I also write ROS Simplified, I can hand them off in a way your team actually understands.
       </div>
     </div>
 
@@ -2548,6 +2565,8 @@ td:not(:first-child) { text-align: right; }
       <div class="work-card">
         <div class="work-card-label">Where I'm Building Depth</div>
         <ul class="specialism-list">
+          <li class="specialism-item">Designing and hand-coding <strong>FastAPI backends</strong> — GET/POST endpoints, request validation, try/except error handling</li>
+          <li class="specialism-item">Integrating <strong>MySQL databases</strong> into backends — connection pooling, schema-aware queries, hashed credentials (pwdlib)</li>
           <li class="specialism-item">Designing ROS 2 node architectures — topics, services, custom message types</li>
           <li class="specialism-item">Bridging isolated environments (ROS 2 ↔ OpenCV, ROS 2 ↔ external processes) via ZeroMQ</li>
           <li class="specialism-item">Debugging multi-process systems — race conditions, launch orchestration, synchronization</li>
@@ -2582,7 +2601,7 @@ td:not(:first-child) { text-align: right; }
     <div class="work-cta">
       <div class="cta-text">
         <div class="cta-headline">
-          If you're prototyping a robotics idea, exploring a perception pipeline, or need a system where ROS 2 talks to the outside world — <em>I can help build it, and explain it.</em>
+          If you're prototyping a robotics idea, perception pipeline, or building a product that needs a <em>real backend — FastAPI, MySQL, real endpoints</em> — I can help build it, and explain it.
         </div>
         <div class="cta-sub">Let's collaborate</div>
       </div>
@@ -2615,7 +2634,7 @@ td:not(:first-child) { text-align: right; }
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-left">Satyarth Shree · Robotics Engineering Student & Builder</div>
+    <div class="footer-left">Satyarth Shree · Robotics Engineering Student · Going Deep on Backend</div>
     <div class="footer-right">Projects current as of 23 Jun 2026 · Writing data through 31 May 2026</div>
   </div>
 
